@@ -1,6 +1,9 @@
 #pragma once
 
+#include "ShaderProgram.h"
+
 class Material
 {
-	// tekstury, shader... ?
+	ShaderProgram shader_prog;
+	// Tekstury?
 };

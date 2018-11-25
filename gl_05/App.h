@@ -1,7 +1,7 @@
 #pragma once
 #define GLEW_STATIC
 #include <GL/glew.h>
-#include "shprogram.h"
+#include "ShaderProgram.h"
 #include <GLFW/glfw3.h>
 #include <SOIL.h>
 
@@ -9,13 +9,9 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-// STD
+#include "World.h"
+
 #include <chrono>
-#include <iostream>
-using namespace std;
-
-
-#include "Scene.h"
 
 struct AppSettings
 {
@@ -38,7 +34,11 @@ private:
 
 	GLFWwindow* window;
 
-	Scene scene;
+	World scene;
+
+	std::chrono::milliseconds time_d;
+
+	ShaderProgram* theProgram; // tymczasowe
 
 	bool init();
 

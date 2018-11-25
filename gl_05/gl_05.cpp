@@ -1,6 +1,6 @@
 #define GLEW_STATIC
 #include <GL/glew.h>
-#include "shprogram.h"
+#include "ShaderProgram.h"
 #include <GLFW/glfw3.h>
 #include <SOIL.h>
 #include <iostream>

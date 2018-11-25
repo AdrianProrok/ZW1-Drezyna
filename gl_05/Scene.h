@@ -1,6 +1,10 @@
 #pragma once
 
 #include "Node.h"
+#include "Mesh.h"
+#include "Material.h"
+
+#include <vector>
 
 class Scene
 {
@@ -10,7 +14,8 @@ public:
 
 	void render();
 
-private:
+protected:
 	Node* root_node;
-	
+	std::vector<Material> materials;
+	std::vector<Mesh> meshes;
 };

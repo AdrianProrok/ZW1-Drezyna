@@ -1,5 +1,7 @@
 #pragma once
 
+#include <GL/glew.h>
+
 class ShaderProgram
 {
 	GLuint program_id; 	// The program ID

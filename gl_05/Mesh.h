@@ -1,5 +1,7 @@
 #pragma once
 
+#include <GL/glew.h>
+
 // GLM
 #include <glm/vec2.hpp>
 #include <glm/vec3.hpp>
@@ -7,22 +9,33 @@
 // STD
 #include <vector>
 
+#include "Material.h"
+
 struct Vertex
 {
-	glm::vec3 position;
-	glm::vec3 normal;
-	glm::vec3 color;
-	glm::vec2 texture_coords;
+	GLfloat position[3];
+	GLfloat normal[3];
+	GLfloat color[3];
+	GLfloat texture_coords[2];
 };
 
 struct Face
 {
-	unsigned int vertex_index[3];
+	GLuint vertex_index[3];
 };
 
 class Mesh
 {
+public:
+	Mesh();
+	~Mesh();
+
 	std::vector<Vertex> vertices;
 	std::vector<Face> faces;
-	// Indeks materia³u?
+	Material* material;
+	
+	GLuint VBO, EBO, VAO;
+
+	void init();
+	void render();
 };
