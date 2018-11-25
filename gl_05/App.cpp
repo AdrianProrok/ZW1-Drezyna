@@ -10,8 +10,8 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 App::App()
 {
 	is_running = false;
-	width = 800;
-	height = 600;
+	settings.width = 800;
+	settings.height = 600;
 }
 
 App::~App()
@@ -51,6 +51,8 @@ void App::render()
 	glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+	scene.render();
+
 	glfwSwapBuffers(window);
 }
 
@@ -68,7 +70,7 @@ bool App::init()
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 		glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
 
-		window = glfwCreateWindow(width, height, "GKOM - Drezyna", nullptr, nullptr);
+		window = glfwCreateWindow(settings.width, settings.height, "GKOM - Drezyna", nullptr, nullptr);
 		if (window == nullptr)
 			throw std::exception("GLFW window not created");
 
@@ -85,7 +87,7 @@ bool App::init()
 		return false;
 	}
 
-	glViewport(0, 0, width, height);
+	glViewport(0, 0, settings.width, settings.height);
 	glEnable(GL_DEPTH_TEST);
 
 	is_running = true;

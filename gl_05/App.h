@@ -4,13 +4,25 @@
 #include "shprogram.h"
 #include <GLFW/glfw3.h>
 #include <SOIL.h>
-#include <iostream>
-using namespace std;
+
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+// STD
 #include <chrono>
+#include <iostream>
+using namespace std;
+
+
+#include "Scene.h"
+
+struct AppSettings
+{
+	int width;
+	int height;
+
+};
 
 class App 
 {
@@ -21,10 +33,12 @@ public:
 
 private:
 	bool is_running;
-	int width;
-	int height;
+
+	AppSettings settings;
 
 	GLFWwindow* window;
+
+	Scene scene;
 
 	bool init();
 
