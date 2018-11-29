@@ -2,7 +2,7 @@
 
 namespace engine
 {
-	class SkyBox
+	class Camera
 	{
 
 	};

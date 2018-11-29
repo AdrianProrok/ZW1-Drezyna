@@ -13,6 +13,8 @@
 
 #include <chrono>
 
+using namespace engine;
+
 struct AppSettings
 {
 	int width;

@@ -11,31 +11,34 @@
 
 #include "Material.h"
 
-struct Vertex
+namespace engine
 {
-	GLfloat position[3];
-	GLfloat normal[3];
-	GLfloat color[3];
-	GLfloat texture_coords[2];
-};
+	struct Vertex
+	{
+		glm::vec3 position;
+		glm::vec3 normal;
+		glm::vec3 color;
+		glm::vec2 texture_coords;
+	};
 
-struct Face
-{
-	GLuint vertex_index[3];
-};
+	struct Face
+	{
+		GLuint vertex_index[3];
+	};
 
-class Mesh
-{
-public:
-	Mesh();
-	~Mesh();
+	class Mesh
+	{
+	public:
+		Mesh();
+		~Mesh();
 
-	std::vector<Vertex> vertices;
-	std::vector<Face> faces;
-	Material* material;
-	
-	GLuint VBO, EBO, VAO;
+		std::vector<Vertex> vertices;
+		std::vector<Face> faces;
+		Material* material;
 
-	void init();
-	void render();
-};
+		GLuint VBO, EBO, VAO;
+
+		void init();
+		void render();
+	};
+}

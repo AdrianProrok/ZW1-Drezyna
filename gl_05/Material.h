@@ -2,8 +2,11 @@
 
 #include "ShaderProgram.h"
 
-class Material
+namespace engine
 {
-	ShaderProgram shader_prog;
-	// Tekstury?
-};
+	class Material
+	{
+		ShaderProgram shader_prog;
+		// Tekstury?
+	};
+}
