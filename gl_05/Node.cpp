@@ -49,14 +49,18 @@ namespace engine
 		*/
 		
 		//this->trans = this->trans * trans;
-		this->trans = trans;
+		
+		//this->trans = trans;
 
-		this->trans = glm::scale(this->trans, scale);
-		this->trans = glm::rotate(this->trans, glm::radians(rotation.x), glm::vec3(1, 0, 0)); // X
-		this->trans = glm::rotate(this->trans, glm::radians(rotation.y), glm::vec3(0, 1, 0)); // Y
-		this->trans = glm::rotate(this->trans, glm::radians(rotation.z), glm::vec3(0, 0, 1)); // Z
+		glm::mat4 new_trans = glm::mat4(1.0f);
 
-		this->trans = glm::translate(this->trans, position);
+		new_trans = glm::scale(new_trans, scale);
+		new_trans = glm::rotate(new_trans, glm::radians(rotation.x), glm::vec3(1, 0, 0)); // X
+		new_trans = glm::rotate(new_trans, glm::radians(rotation.y), glm::vec3(0, 1, 0)); // Y
+		new_trans = glm::rotate(new_trans, glm::radians(rotation.z), glm::vec3(0, 0, 1)); // Z
+		new_trans = glm::translate(new_trans, position);
+
+		this->trans = trans * new_trans;
 
 		for (auto& child : children)
 			child->update(delta_time, this->trans);
