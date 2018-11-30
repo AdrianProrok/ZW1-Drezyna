@@ -49,4 +49,9 @@ namespace engine
 	{
 		return shader_program;
 	}
+
+	Camera* Scene::getCamera()
+	{
+		return &camera;
+	}
 }

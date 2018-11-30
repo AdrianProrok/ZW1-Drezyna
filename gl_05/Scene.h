@@ -27,6 +27,8 @@ namespace engine
 	
 		void setCurrentShaderProgram(ShaderProgram* program);
 		ShaderProgram* getCurrentShaderProgram();
+
+		Camera* getCamera();
 	protected:
 
 		void setRootNode(Node* node);

@@ -70,10 +70,19 @@ void Draisine::generate()
 	Cube* cube = new Cube;
 	cube->init();
 	test.setMesh(cube);
-	test.position = glm::vec3(1.0f, 0.0f, 0.0f);
+	test.position = glm::vec3(1.5f, 1.0f, 0.0f);
 	test.scale = glm::vec3(0.5f);
 
 	addChild(&test);
+
+	Cube* cube2 = new Cube;
+	cube2->init();
+	test2.setMesh(cube2);
+	test2.position = glm::vec3(-1.5f, -1.0f, 0.0f);
+	test2.scale = glm::vec3(0.5f);
+
+	addChild(&test2);
+	
 	//children.push_back(&test);
 }
 

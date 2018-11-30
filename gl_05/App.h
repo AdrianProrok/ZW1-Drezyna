@@ -22,6 +22,35 @@ struct AppSettings
 
 };
 
+// Do poprawy, to jest tak na szybko..
+struct Keyboard
+{
+	bool W;
+	bool A;
+	bool S;
+	bool D;
+	bool E;
+	bool Q;
+};
+
+// Tak samo do poprawy
+struct Mouse
+{
+	double pos_x;
+	double pos_y;
+	double diff_x;
+	double diff_y;
+};
+
+struct Gamepad
+{
+	float left_horizontal;
+	float left_vertical;
+
+	float right_horizontal;
+	float right_vertical;
+};
+
 class App 
 {
 public:
@@ -38,7 +67,7 @@ private:
 
 	World scene;
 
-	std::chrono::milliseconds time_d;
+	std::chrono::microseconds time_d;
 
 	ShaderProgram* theProgram; // tymczasowe
 
@@ -46,4 +75,10 @@ private:
 
 	void render();
 	void logic();
+
+	static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode);
+	static void cursor_position_callback(GLFWwindow* window, double xpos, double ypos);
+	static Keyboard keyboard;
+	static Mouse mouse;
+	static Gamepad gamepad;
 };

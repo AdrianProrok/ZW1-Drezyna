@@ -51,11 +51,12 @@ namespace engine
 		//this->trans = this->trans * trans;
 		this->trans = trans;
 
-		this->trans = glm::translate(this->trans, position);
 		this->trans = glm::scale(this->trans, scale);
 		this->trans = glm::rotate(this->trans, glm::radians(rotation.x), glm::vec3(1, 0, 0)); // X
 		this->trans = glm::rotate(this->trans, glm::radians(rotation.y), glm::vec3(0, 1, 0)); // Y
 		this->trans = glm::rotate(this->trans, glm::radians(rotation.z), glm::vec3(0, 0, 1)); // Z
+
+		this->trans = glm::translate(this->trans, position);
 
 		for (auto& child : children)
 			child->update(delta_time, this->trans);

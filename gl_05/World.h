@@ -13,4 +13,5 @@ public:
 	void init();
 	void render();
 	virtual void update(float delta_time);
+
 };
