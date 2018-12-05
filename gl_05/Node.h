@@ -36,11 +36,13 @@ namespace engine
 		glm::vec3 rotation;
 		glm::vec3 scale;
 
+		void addChild(Node* child);
+
 	protected:
 		Mesh* mesh;
 		Scene* scene;
 
-		void addChild(Node* child);
+		
 	
 	private:
 		std::list<Node*> children;

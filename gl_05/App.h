@@ -22,34 +22,37 @@ struct AppSettings
 
 };
 
-// Do poprawy, to jest tak na szybko..
-struct Keyboard
+class Input
 {
-	bool W;
-	bool A;
-	bool S;
-	bool D;
-	bool E;
-	bool Q;
+public:
+	class Keyboard
+	{
+	public:
+		bool keys_pressed[GLFW_KEY_LAST];
+	};
+
+	class Mouse
+	{
+	public:
+		double pos_x;
+		double pos_y;
+	};
+
+	struct Gamepad
+	{
+		float left_horizontal;
+		float left_vertical;
+
+		float right_horizontal;
+		float right_vertical;
+	};
+
+	Keyboard keyboard;
+	Mouse mouse;
+	Gamepad gamepad;
 };
 
-// Tak samo do poprawy
-struct Mouse
-{
-	double pos_x;
-	double pos_y;
-	double diff_x;
-	double diff_y;
-};
 
-struct Gamepad
-{
-	float left_horizontal;
-	float left_vertical;
-
-	float right_horizontal;
-	float right_vertical;
-};
 
 class App 
 {
@@ -69,16 +72,12 @@ private:
 
 	std::chrono::microseconds time_d;
 
-	ShaderProgram* theProgram; // tymczasowe
-
 	bool init();
 
 	void render();
 	void logic();
 
 	static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode);
-	static void cursor_position_callback(GLFWwindow* window, double xpos, double ypos);
-	static Keyboard keyboard;
-	static Mouse mouse;
-	static Gamepad gamepad;
+
+	static Input input;
 };

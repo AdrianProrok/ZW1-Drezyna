@@ -11,6 +11,8 @@
 //#include "Material.h"
 //#include <vector>
 
+class Input;
+
 namespace engine
 {
 	class Scene
@@ -19,20 +21,28 @@ namespace engine
 		Scene();
 		~Scene();
 
+		virtual void init(float aspect_ratio);
+
 		// Renderuje scene, wywo³uje renderowanie root_node
 		virtual void render();
 
 		// Aktualizowanie sceny - przemieszczanie obiektów na scenie itp.
-		virtual void update( float delta_time );
+		virtual void update(float delta_time, const Input& input);
 	
+		void recalculateProj(float aspect_ratio, float angle);
+
 		void setCurrentShaderProgram(ShaderProgram* program);
 		ShaderProgram* getCurrentShaderProgram();
 
 		Camera* getCamera();
+
+		//void addLight(glm::vec3 position, glm::vec3 color, float intensity);
 	protected:
 
 		void setRootNode(Node* node);
 		Node* getRootNode();
+
+		void updateCamera(float delta_time, const Input& input);
 
 		ShaderProgram* shader_program;
 

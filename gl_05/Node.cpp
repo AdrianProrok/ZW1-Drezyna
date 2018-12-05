@@ -33,7 +33,6 @@ namespace engine
 
 		GLuint transformLoc = glGetUniformLocation(scene->getCurrentShaderProgram()->get_programID(), "transform");
 		glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(trans));
-		//scene->shader->Use();
 
 		if (mesh)
 			mesh->render();
@@ -44,21 +43,14 @@ namespace engine
 
 	void Node::update(float delta_time, glm::mat4 trans)
 	{
-		/*
-			Aktualizowanie po³o¿enia, obrotu, skali obiektu...
-		*/
-		
-		//this->trans = this->trans * trans;
-		
-		//this->trans = trans;
-
 		glm::mat4 new_trans = glm::mat4(1.0f);
 
 		new_trans = glm::scale(new_trans, scale);
+		new_trans = glm::translate(new_trans, position);
 		new_trans = glm::rotate(new_trans, glm::radians(rotation.x), glm::vec3(1, 0, 0)); // X
 		new_trans = glm::rotate(new_trans, glm::radians(rotation.y), glm::vec3(0, 1, 0)); // Y
 		new_trans = glm::rotate(new_trans, glm::radians(rotation.z), glm::vec3(0, 0, 1)); // Z
-		new_trans = glm::translate(new_trans, position);
+		
 
 		this->trans = trans * new_trans;
 

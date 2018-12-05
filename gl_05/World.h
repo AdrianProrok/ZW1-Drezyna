@@ -10,8 +10,8 @@ public:
 	World();
 	~World();
 	Draisine draisine;
-	void init();
+	void init(float aspect_ratio);
 	void render();
-	virtual void update(float delta_time);
+	virtual void update(float delta_time, const Input& input);
 
 };
