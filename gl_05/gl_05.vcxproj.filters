@@ -5,21 +5,69 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Engine">
+      <UniqueIdentifier>{a74a0c33-b6ef-468e-92bc-e5773ed44d3d}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Header Files">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    <Filter Include="Engine\SimpleGeometry">
+      <UniqueIdentifier>{47738b09-8517-49d9-8295-6f1b939f195e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Basic">
+      <UniqueIdentifier>{15a15f05-6e2d-4834-a8d8-2f7f5af612a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Basic\Source Files">
+      <UniqueIdentifier>{e1991bc6-fbba-43db-b1c8-fe367085742c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Basic\Header Files">
+      <UniqueIdentifier>{42841e46-d386-4987-b24d-a80b7787224e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\SimpleGeometry\Header FIles">
+      <UniqueIdentifier>{60cdfb31-ab2e-46e5-b87f-d411bdf42693}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\SimpleGeometry\Source Files">
+      <UniqueIdentifier>{45eef81d-a1b5-4cce-a92f-59bb326cfbbd}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gl_05.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="shprogram.cpp">
+    <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="App.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Node.cpp">
+      <Filter>Engine\Basic\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Engine\Basic\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ShaderProgram.cpp">
+      <Filter>Engine\Basic\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh.cpp">
+      <Filter>Engine\Basic\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Draisine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="World.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Cube.cpp">
+      <Filter>Engine\SimpleGeometry\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Engine\Basic\Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -35,8 +83,41 @@
     </Image>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="shprogram.h">
+    <ClInclude Include="App.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Node.h">
+      <Filter>Engine\Basic\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Engine\Basic\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderProgram.h">
+      <Filter>Engine\Basic\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Skybox.h">
+      <Filter>Engine\Basic\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Draisine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="World.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Cube.h">
+      <Filter>Engine\SimpleGeometry\Header FIles</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>Engine\Basic\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Material.h">
+      <Filter>Engine\Basic\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Light.h">
+      <Filter>Engine\Basic\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Engine\Basic\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
