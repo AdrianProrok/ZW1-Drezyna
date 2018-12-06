@@ -10,6 +10,46 @@
 
 Input App::input;
 
+void Input::updateGamepad()
+{
+	static int is_joystick_present = false;
+		
+	gamepad.left_horizontal = 0;
+	gamepad.left_vertical = 0;
+	gamepad.right_horizontal = 0;
+	gamepad.right_vertical = 0;
+	gamepad.trigger = 0;
+
+	is_joystick_present = glfwJoystickPresent(GLFW_JOYSTICK_2);
+	
+	if (!is_joystick_present)
+		return;
+
+	int count;
+	const float* axes = glfwGetJoystickAxes(GLFW_JOYSTICK_2, &count);
+
+	if (!(count == 0 || count < 4))
+	{
+		const float dead_zone = 0.1f;
+		if (abs(axes[0]) > dead_zone)
+			gamepad.left_horizontal = axes[0];
+		if (abs(axes[1]) > dead_zone)
+			gamepad.left_vertical = axes[1];
+		if (abs(axes[2]) > dead_zone)
+			gamepad.trigger = axes[2];
+		if (abs(axes[4]) > dead_zone)
+			gamepad.right_horizontal = axes[4];
+		if (abs(axes[3]) > dead_zone)
+			gamepad.right_vertical = axes[3];
+	}
+}
+
+void Input::updateMouse(GLFWwindow *window)
+{
+	glfwGetCursorPos(window, &mouse.pos_x, &mouse.pos_y);
+	glfwSetCursorPos(window, 0, 0);
+}
+
 void App::key_callback(GLFWwindow* window, int key, int scancode, int action, int mode)
 {
 	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
@@ -70,13 +110,13 @@ void App::run()
 }
 
 void App::logic()
-{
-	glfwGetCursorPos(window, &input.mouse.pos_x, &input.mouse.pos_y);
-	glfwSetCursorPos(window, 0, 0);
-	
+{	
 	glfwPollEvents();
 	is_running = !glfwWindowShouldClose(window);
 
+	input.updateMouse(window);
+	input.updateGamepad();
+	
 	scene.update(time_d.count() / 1000000.0f, input);
 }
 

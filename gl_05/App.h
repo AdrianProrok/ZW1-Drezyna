@@ -45,11 +45,16 @@ public:
 
 		float right_horizontal;
 		float right_vertical;
+
+		float trigger;
 	};
 
 	Keyboard keyboard;
 	Mouse mouse;
 	Gamepad gamepad;
+
+	void updateMouse(GLFWwindow* window);
+	void updateGamepad();
 };
 
 
