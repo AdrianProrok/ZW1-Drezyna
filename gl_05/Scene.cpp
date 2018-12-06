@@ -61,6 +61,20 @@ namespace engine
 
 	void Scene::updateCamera(float delta_time, const Input& input)
 	{
+		const float speed_gamepad_move = 3.5f;
+		const float speed_gamepad_angle = 120.0f;
+		
+		camera.update(
+			glm::vec3(
+				-speed_gamepad_move*input.gamepad.left_horizontal*delta_time,
+				speed_gamepad_move*input.gamepad.trigger*delta_time,
+				-speed_gamepad_move*input.gamepad.left_vertical*delta_time),
+			glm::vec3(
+				speed_gamepad_angle*input.gamepad.right_vertical*delta_time, 
+				speed_gamepad_angle*input.gamepad.right_horizontal*delta_time,
+				0.0f)
+		);
+
 		camera.update(
 			glm::vec3(
 				camera.speed*(input.keyboard.keys_pressed[GLFW_KEY_A] - input.keyboard.keys_pressed[GLFW_KEY_D])*delta_time,
