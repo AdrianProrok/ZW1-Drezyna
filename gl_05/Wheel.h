@@ -2,16 +2,18 @@
 
 #include "Node.h"
 #include "RightRegularPrism.h"
-#include "Wheel.h"
+#include "WheelSide.h"
 
-class Draisine : public engine::Node
+class Wheel : public engine::Node
 {
 public:
-	Draisine();
-	~Draisine();
+	Wheel();
+	~Wheel();
 
 	void generate();
 	virtual void update(float delta_time, glm::mat4 trans);
+
 private:
-	Wheel wheels[4];
+	WheelSide sides[2];
 };
+
