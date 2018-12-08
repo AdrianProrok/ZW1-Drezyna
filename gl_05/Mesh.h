@@ -40,5 +40,7 @@ namespace engine
 
 		void init();
 		void render();
+	protected:
+		void scale(glm::vec3);
 	};
 }

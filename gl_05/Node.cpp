@@ -7,7 +7,6 @@
 
 namespace engine
 {
-
 	Node::Node()
 	{
 		mesh = nullptr;
