@@ -15,7 +15,7 @@ Draisine::~Draisine()
 
 void Draisine::generate()
 {
-	mesh = new RightRegularPrism(2.0f, 2.3f, 7, glm::vec3(1.0f, 1.0f, 0.0f));
+	mesh = new RightRegularPrism(1.0f, 1.0f, 4, glm::vec3(1.0f, 1.0f, 0.0f), glm::vec3(2.0f, 1.0f,0.8f));
 
 	/*mesh->vertices = {
 		{{ 5.0f,  0.0f,  5.0f}, {1.0f,1.0f,1.0f}, {1.0f, 0.0f, 0.0f}, {1.0f,  0.0f}},

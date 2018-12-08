@@ -1,6 +1,9 @@
 #include "Mesh.h"
 
 #include <GL/glew.h>
+#include <glm/mat4x4.hpp>
+#include <glm/gtc/type_ptr.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 
 namespace engine
 {
@@ -61,5 +64,17 @@ namespace engine
 		glBindVertexArray(VAO);
 		glDrawElements(GL_TRIANGLES, faces.size() * 3, GL_UNSIGNED_INT, 0);
 		glBindVertexArray(0);
+	}
+
+	void Mesh::scale(glm::vec3 scale)
+	{
+		glm::mat4 mat_scale = glm::mat4(1.0f);
+		mat_scale = glm::scale(mat_scale, scale);
+
+		for (Vertex& vertex : vertices)
+		{
+			glm::vec4 temp = glm::vec4(vertex.position, 1.0f);
+			vertex.position = glm::vec3(mat_scale * temp);
+		}
 	}
 }
