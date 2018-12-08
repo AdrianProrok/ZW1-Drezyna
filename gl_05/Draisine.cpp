@@ -1,7 +1,6 @@
 #include "Draisine.h"
 #include "Mesh.h"
 #include <glm/gtc/matrix_transform.hpp>
-#include <iostream>
 
 using namespace engine;
 
@@ -15,7 +14,7 @@ Draisine::~Draisine()
 
 void Draisine::generate()
 {
-	mesh = new RightRegularPrism(1.0f, 5.0f, 4, glm::vec3(0.651f, 0.502f, 0.392f), glm::vec3(2.0f, 1.0f, 1.0f));
+	mesh = new RightRegularPrism(1.0f, 5.0f, 4, glm::vec3(0.6901f, 0.7686f, 0.8705f), glm::vec3(2.0f, 1.0f, 1.0f));
 	mesh->init();
 }
 

@@ -72,6 +72,9 @@
     <ClCompile Include="Desert.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Plank.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="gl_05.frag" />
@@ -126,6 +129,9 @@
       <Filter>Engine\SimpleGeometry\Header FIles</Filter>
     </ClInclude>
     <ClInclude Include="Desert.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Plank.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

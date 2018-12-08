@@ -23,9 +23,8 @@ void World::init(float aspect_ratio)
 
 	// Potem RootNode
 	setRootNode(&desert);
-	
-	desert.generate();
 
+	desert.generate();
 	// I ca³a reszta
 
 	camera.setScene(this);
