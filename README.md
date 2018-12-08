@@ -28,6 +28,9 @@ Na otoczenie składa się pustynny krajobraz, kaktusy, przelatujące [biegacze](
 # Szkic
 ![](draisine-sketch.png)
 
+# Aktualny Stan
+![](current-state.png)
+
 # Opis elementów ruchomych
 
 ### Wszystkie elementy 
