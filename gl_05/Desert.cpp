@@ -19,7 +19,7 @@ void Desert::generate()
 
 	addChild(&draisine);
 	draisine.generate();
-	draisine.position = glm::vec3(0.0f, 2.0f, 0.0f);
+	draisine.position = glm::vec3(0.0f, 1.5f, 0.0f);
 	
 
 	for (int i = 0; i < 100; ++i)

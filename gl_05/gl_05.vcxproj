@@ -102,6 +102,8 @@
     <ClCompile Include="RightRegularPrism.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="ShaderProgram.cpp" />
+    <ClCompile Include="Wheel.cpp" />
+    <ClCompile Include="WheelSide.cpp" />
     <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -127,6 +129,8 @@
     <ClInclude Include="Scene.h" />
     <ClInclude Include="ShaderProgram.h" />
     <ClInclude Include="Skybox.h" />
+    <ClInclude Include="Wheel.h" />
+    <ClInclude Include="WheelSide.h" />
     <ClInclude Include="World.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
