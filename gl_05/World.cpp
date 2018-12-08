@@ -28,7 +28,7 @@ void World::init(float aspect_ratio)
 	// I ca³a reszta
 
 	camera.setScene(this);
-	camera.set(glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 180.0f, 0.0f));
+	camera.set(glm::vec3(0.0f, 0.0f, 15.0f), glm::vec3(0.0f, 180.0f, 0.0f));
 	
 	Scene::init(aspect_ratio);
 }

@@ -15,6 +15,6 @@ public:
 
 private:
 	Draisine draisine;
-    Plank planks[500];
+    Plank planks[100];
 };
 
