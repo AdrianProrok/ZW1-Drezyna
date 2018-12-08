@@ -22,12 +22,12 @@ namespace engine
 
 			//boki
 			faces.push_back({i, i+verts+1, i+verts+2});
-			faces.push_back({i, i+1,i+verts+2});
+			faces.push_back({i, i+1, i+verts+2});
 		}
 		//ostatni vert dolnej podstawy z pierwszym
 		faces.push_back({0, verts, 1});
 		//ostatni vert gornej podstawy z pierwszym
-		faces.push_back({ verts + 1, 2 * verts + 1, verts + 2 });
+		faces.push_back({verts+1, 2*verts+1, verts+2});
 		//ostatnia scianka boczna
 		faces.push_back({verts, 1, verts+2});
 		faces.push_back({verts, 2*verts+1, verts+2});
@@ -37,8 +37,8 @@ namespace engine
 	{
 		glm::mat4 rotation(1.0f);
 
-		Vertex zeroV = { { 0.0f,  0.0f, height}, {1.0f,1.0f,1.0f}, color, {0.0f,  0.0f} };
-		Vertex firstV = { { 0.0f, radius, height}, {1.0f,1.0f,1.0f}, color, {0.0f,  0.0f} };
+		Vertex zeroV = { { 0.0f,  0.0f, height}, {1.0f, 1.0f, 1.0f}, color, {0.0f, 0.0f} };
+		Vertex firstV = { { 0.0f, radius, height}, {1.0f, 1.0f, 1.0f}, color, {0.0f, 0.0f} };
 
 		vertices.push_back(zeroV);
 		vertices.push_back(firstV);
@@ -50,7 +50,7 @@ namespace engine
 		for (int i = 0; i < verts - 1; ++i)
 		{
 			temp = temp * rotation;
-			Vertex newVert = { glm::vec3(temp), {1.0f,1.0f,1.0f}, color, {0.0f,  0.0f} };
+			Vertex newVert = { glm::vec3(temp), {1.0f, 1.0f, 1.0f}, color, {0.0f, 0.0f} };
 			vertices.push_back(newVert);
 		}
 	}
