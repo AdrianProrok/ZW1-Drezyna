@@ -3,6 +3,7 @@
 #include "Node.h"
 #include "Draisine.h"
 #include "Plank.h"
+#include "Rail.h"
 
 class Desert : public engine::Node
 {
@@ -16,5 +17,6 @@ public:
 private:
 	Draisine draisine;
     Plank planks[100];
+	Rail rails[2];
 };
 
