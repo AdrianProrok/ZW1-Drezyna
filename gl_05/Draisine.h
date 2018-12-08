@@ -2,6 +2,7 @@
 
 #include "Node.h"
 #include "Cube.h"
+#include "RightRegularPrism.h"
 
 class Draisine : public engine::Node
 {

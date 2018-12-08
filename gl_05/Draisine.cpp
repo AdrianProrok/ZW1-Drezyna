@@ -15,9 +15,9 @@ Draisine::~Draisine()
 
 void Draisine::generate()
 {
-	mesh = new Mesh();
+	mesh = new RightRegularPrism(2.0f, 2.3f, 7, glm::vec3(1.0f, 1.0f, 0.0f));
 
-	mesh->vertices = {
+	/*mesh->vertices = {
 		{{ 5.0f,  0.0f,  5.0f}, {1.0f,1.0f,1.0f}, {1.0f, 0.0f, 0.0f}, {1.0f,  0.0f}},
 		{{-5.0f,  0.0f,  5.0f}, {1.0f,1.0f,1.0f}, {0.0f, 1.0f, 0.0f}, {0.0f,  0.0f}},
 		{{-5.0f, -0.0f, -5.0f}, {1.0f,1.0f,1.0f}, {0.0f, 0.0f, 1.0f}, {0.0f,  1.0f}},
@@ -27,10 +27,10 @@ void Draisine::generate()
 	mesh->faces = {
 		{0, 1, 2 },
 		{0, 2, 3}
-	};
+	};*/
 
 	mesh->init();
-	Cube* cube = new Cube;
+	/*Cube* cube = new Cube;
 	cube->init();
 	test.setMesh(cube);
 	test.position = glm::vec3(1.5f, 1.5f, 0.0f);
@@ -44,7 +44,7 @@ void Draisine::generate()
 	test2.position = glm::vec3(-1.5f, 0.5f, 0.0f);
 	test2.scale = glm::vec3(0.5f);
 	
-	test.addChild(&test2);
+	test.addChild(&test2);*/
 
 	this->position.y -= 2;
 }
