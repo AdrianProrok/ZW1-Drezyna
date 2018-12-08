@@ -1,17 +1,19 @@
 #pragma once
 
 #include "Node.h"
-#include "Cube.h"
-#include "RightRegularPrism.h"
+#include "Draisine.h"
 
-class Draisine : public engine::Node
+class Desert : public engine::Node
 {
 public:
-	Draisine();
-	~Draisine();
+	Desert();
+	~Desert();
 
 	void generate();
 	virtual void update(float delta_time, glm::mat4 trans);
+
 private:
-	
+	Draisine draisine;
+	// Rails rails;
 };
+
