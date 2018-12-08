@@ -1,6 +1,5 @@
 #pragma once
 #include "Node.h"
-#include "Cube.h"
 #include "RightRegularPrism.h"
 
 class Plank : public engine::Node

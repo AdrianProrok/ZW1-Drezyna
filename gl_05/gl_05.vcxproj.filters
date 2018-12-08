@@ -60,9 +60,6 @@
     <ClCompile Include="World.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Cube.cpp">
-      <Filter>Engine\SimpleGeometry\Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Camera.cpp">
       <Filter>Engine\Basic\Source Files</Filter>
     </ClCompile>
@@ -73,6 +70,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Plank.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Rail.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -110,9 +110,6 @@
     <ClInclude Include="World.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Cube.h">
-      <Filter>Engine\SimpleGeometry\Header FIles</Filter>
-    </ClInclude>
     <ClInclude Include="Mesh.h">
       <Filter>Engine\Basic\Header Files</Filter>
     </ClInclude>
@@ -132,6 +129,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Plank.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Rail.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

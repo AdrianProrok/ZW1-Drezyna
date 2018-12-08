@@ -3,14 +3,13 @@
 #include "Node.h"
 #include "RightRegularPrism.h"
 
-class Draisine : public engine::Node
+class Rail : public engine::Node
 {
 public:
-	Draisine();
-	~Draisine();
+	Rail();
+	~Rail();
 
 	void generate();
 	virtual void update(float delta_time, glm::mat4 trans);
-private:
-	
 };
+

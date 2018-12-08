@@ -29,6 +29,12 @@ void Desert::generate()
 		planks[i].position = glm::vec3(200.0f - (float)4*i, 0.0f, 0.0f);
 	}
 
+	for (int i = 0; i < 2; ++i)
+	{
+		addChild(&rails[i]);
+		rails[i].generate();
+		rails[i].position = glm::vec3(0.0f, 0.14f, 4.0f - 8.0f*i);
+	}
 
 	mesh->init();
 
