@@ -32,7 +32,7 @@ namespace engine
 
 		//obracamy figure o 45 stopni, uzywane przy generacji prostopadloscianow, aby mozna je bylo odrazu skalowac
 		glm::mat4 rotation(1.0f);
-		rotation = glm::rotate(rotation, glm::radians(45.0f), glm::vec3(0, 0, 1));
+		rotation = glm::rotate(rotation, glm::radians(45.0f), glm::vec3(0, 1, 0));
 
 		for (Vertex& vertex : vertices)
 		{
@@ -47,17 +47,17 @@ namespace engine
 	{
 		glm::mat4 rotation(1.0f);
 
-		Vertex zeroV = { { 0.0f,  0.0f, height}, {1.0f, 1.0f, 1.0f}, color, {0.0f, 0.0f} };
-		Vertex firstV = { { 0.0f, radius, height}, {1.0f, 1.0f, 1.0f}, color, {0.0f, 0.0f} };
+		Vertex zeroV = { { 0.0f,  height, 0.0f}, {1.0f, 1.0f, 1.0f}, color, {0.0f, 0.0f} };
+		Vertex firstV = { { 0.0f, height, radius}, {1.0f, 1.0f, 1.0f}, color, {0.0f, 0.0f} };
 
 		vertices.push_back(zeroV);
 		vertices.push_back(firstV);
 
-		rotation = glm::rotate(rotation, glm::radians(360.0f / (float)verts), glm::vec3(0, 0, 1));
+		rotation = glm::rotate(rotation, glm::radians(360.0f / (float)verts), glm::vec3(0, 1, 0));
 
 		glm::vec4 temp = glm::vec4(firstV.position, 1.0f);
 
-		for (int i = 0; i < verts - 1; ++i)
+		for (GLuint i = 0; i < verts - 1; ++i)
 		{
 			temp = temp * rotation;
 			Vertex newVert = { glm::vec3(temp), {1.0f, 1.0f, 1.0f}, color, {0.0f, 0.0f} };

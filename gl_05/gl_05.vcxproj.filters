@@ -69,6 +69,9 @@
     <ClCompile Include="RightRegularPrism.cpp">
       <Filter>Engine\SimpleGeometry\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Desert.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="gl_05.frag" />
@@ -121,6 +124,9 @@
     </ClInclude>
     <ClInclude Include="RightRegularPrism.h">
       <Filter>Engine\SimpleGeometry\Header FIles</Filter>
+    </ClInclude>
+    <ClInclude Include="Desert.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
