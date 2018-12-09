@@ -41,14 +41,15 @@ namespace engine
 		}
 
 		this->scale(scale);
+		calculateNormals();
 	}
 
 	void RightRegularPrism::generateBase(float height, float radius, GLuint verts, glm::vec3 color)
 	{
 		glm::mat4 rotation(1.0f);
 
-		Vertex zeroV = { { 0.0f,  height, 0.0f}, {1.0f, 1.0f, 1.0f}, color, {0.0f, 0.0f} };
-		Vertex firstV = { { 0.0f, height, radius}, {1.0f, 1.0f, 1.0f}, color, {0.0f, 0.0f} };
+		Vertex zeroV = { { 0.0f,  height, 0.0f}, glm::vec3(0.0f), color, {0.0f, 0.0f} };
+		Vertex firstV = { { 0.0f, height, radius}, glm::vec3(0.0f), color, {0.0f, 0.0f} };
 
 		vertices.push_back(zeroV);
 		vertices.push_back(firstV);
@@ -60,9 +61,26 @@ namespace engine
 		for (GLuint i = 0; i < verts - 1; ++i)
 		{
 			temp = temp * rotation;
-			Vertex newVert = { glm::vec3(temp), {1.0f, 1.0f, 1.0f}, color, {0.0f, 0.0f} };
+			Vertex newVert = { glm::vec3(temp), glm::vec3(0.0f), color, {0.0f, 0.0f} };
 			vertices.push_back(newVert);
 		}
+	}
+
+	void RightRegularPrism::calculateNormals()
+	{
+		for (Face& face : faces)
+		{
+			glm::vec3 edge1 = vertices[face.vertex_index[2]].position - vertices[face.vertex_index[0]].position;
+			glm::vec3 edge2 = vertices[face.vertex_index[1]].position - vertices[face.vertex_index[0]].position;
+			glm::vec3 normal = normalize(glm::cross(edge1, edge2));
+
+			vertices[face.vertex_index[0]].normal += normal;
+			vertices[face.vertex_index[1]].normal += normal;
+			vertices[face.vertex_index[2]].normal += normal;
+		}
+
+		for (Vertex& vertex : vertices)
+			vertex.normal = normalize(vertex.normal);
 	}
 
 	RightRegularPrism::~RightRegularPrism()
