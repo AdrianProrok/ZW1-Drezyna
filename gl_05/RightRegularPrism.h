@@ -11,5 +11,6 @@ namespace engine
 		~RightRegularPrism();
 	private:
 		void generateBase(float, float, GLuint, glm::vec3);
+		void calculateNormals();
 	};
 }
