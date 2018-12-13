@@ -101,6 +101,7 @@
     <ClCompile Include="Rail.cpp" />
     <ClCompile Include="RightRegularPrism.cpp" />
     <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="Screw.cpp" />
     <ClCompile Include="ShaderProgram.cpp" />
     <ClCompile Include="Wheel.cpp" />
     <ClCompile Include="WheelSide.cpp" />
@@ -127,6 +128,7 @@
     <ClInclude Include="Rail.h" />
     <ClInclude Include="RightRegularPrism.h" />
     <ClInclude Include="Scene.h" />
+    <ClInclude Include="Screw.h" />
     <ClInclude Include="ShaderProgram.h" />
     <ClInclude Include="Skybox.h" />
     <ClInclude Include="Wheel.h" />

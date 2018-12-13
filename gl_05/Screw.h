@@ -1,21 +1,14 @@
 #pragma once
-
 #include "Node.h"
 #include "RightRegularPrism.h"
-#include "WheelSide.h"
-#include "Screw.h"
 
-class Wheel : public engine::Node
+class Screw : public engine::Node
 {
 public:
-	Wheel();
-	~Wheel();
+	Screw();
+	~Screw();
 
 	void generate();
 	virtual void update(float delta_time, glm::mat4 trans);
-
-private:
-	WheelSide sides[2];
-	Screw screws[4];
 };
 
