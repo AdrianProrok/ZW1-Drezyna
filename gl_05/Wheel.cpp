@@ -20,28 +20,19 @@ void Wheel::generate()
 {
 	mesh = new RightRegularPrism(0.7f, 1.35f, 64, glm::vec3(1.0f, 0.0f, 0.0f));
 
-	glm::mat4 rotation(1.0f);
-	rotation = glm::rotate(rotation, glm::radians(90.0f), glm::vec3(1, 0, 0));
-
 	for (WheelSide& wheelSide : sides)
 	{
 		addChild(&wheelSide);
 		wheelSide.generate();
 	}
 
-	sides[0].position = glm::vec3(0.0f, 0.0f, 0.7f);
-	sides[1].position = glm::vec3(0.0f, 0.0f, -0.112f);
-
-	for (Vertex& vertex : mesh->vertices)
-	{
-		glm::vec4 temp = glm::vec4(vertex.position, 1.0f);
-		vertex.position = glm::vec3(rotation * temp);
-	}
-
+	sides[0].position = glm::vec3(0.0f, -0.112f, 0.0f);
+	sides[1].position = glm::vec3(0.0f, 0.7f, 0.0f);
 	mesh->init();
 }
 
 void Wheel::update(float delta_time, glm::mat4 trans)
 {
+	rotation.x = 90.0f;
 	Node::update(delta_time, trans);
 }

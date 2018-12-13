@@ -15,20 +15,20 @@ namespace engine
 		for (GLuint i = 1; i < verts; ++i)
 		{
 			//dolna podstawa
-			faces.push_back({0, i, i+1});
+			faces.push_back({0, i+1, i});
 			//gorna podstawa
 			faces.push_back({verts+1, i+verts+1, i+verts+2});
 			//boki
-			faces.push_back({i, i+verts+1, i+verts+2});
+			faces.push_back({i, i+verts+2, i+verts+1});
 			faces.push_back({i, i+1, i+verts+2});
 		}
 		//ostatni vert dolnej podstawy z pierwszym
-		faces.push_back({0, verts, 1});
+		faces.push_back({0, 1, verts});
 		//ostatni vert gornej podstawy z pierwszym
 		faces.push_back({verts+1, 2*verts+1, verts+2});
 		//ostatnia scianka boczna
-		faces.push_back({verts, 1, verts+2});
-		faces.push_back({verts, 2*verts+1, verts+2});
+		faces.push_back({verts, verts+2, 2*verts+1});
+		faces.push_back({ verts, 1, verts + 2 });
 
 		//obracamy figure o 45 stopni, uzywane przy generacji prostopadloscianow, aby mozna je bylo odrazu skalowac
 		glm::mat4 rotation(1.0f);
