@@ -50,6 +50,15 @@ void Draisine::update(float delta_time, glm::mat4 trans)
 		wheels[i+2].rotation.x = -90.0f;
 
 		bars[i].rotation.x = 90.0f;
+
+		wheels[i].rotation.y += 45.0f*delta_time;
+		if (wheels[i].rotation.y >= 360.0f) rotation.y -= 360.0f;
+
+		wheels[i + 2].rotation.y -= 45.0f*delta_time;
+		if (wheels[i + 2].rotation.y <= 0.0f) rotation.y += 360.0f;
+
+		bars[i].position.x = -1.0f*sin(glm::radians(wheels[i].rotation.y));
+		bars[i].position.y = 0.5f + 1.0f*cos(glm::radians(wheels[i].rotation.y));
 	}
 	
 	Node::update(delta_time, trans);
