@@ -29,6 +29,15 @@ void Draisine::generate()
 	wheels[2].position = glm::vec3(4.5f, 0.5f, -3.65f);
 	//BACK RIGHT
 	wheels[3].position = glm::vec3(-4.5f, 0.5f, -3.65f);
+
+	for (Bar& bar : bars)
+	{
+		addChild(&bar);
+		bar.generate();
+	}
+
+	bars[0].position = glm::vec3(0.0f, 1.5f, 4.462f);
+	bars[1].position = glm::vec3(0.0f, 1.5f, -4.612f);
 		
 	mesh->init();
 }
@@ -39,6 +48,8 @@ void Draisine::update(float delta_time, glm::mat4 trans)
 	{
 		wheels[i].rotation.x = 90.0f;
 		wheels[i+2].rotation.x = -90.0f;
+
+		bars[i].rotation.x = 90.0f;
 	}
 	
 	Node::update(delta_time, trans);
