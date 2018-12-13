@@ -20,15 +20,6 @@ WheelSide::~WheelSide()
 void WheelSide::generate()
 {
 	mesh = new RightRegularPrism(0.112f, 1.475f, 64, glm::vec3(0.98f, 0.52f, 0.35f));
-
-	glm::mat4 rotation(1.0f);
-	rotation = glm::rotate(rotation, glm::radians(90.0f), glm::vec3(1, 0, 0));
-
-	for (Vertex& vertex : mesh->vertices)
-	{
-		glm::vec4 temp = glm::vec4(vertex.position, 1.0f);
-		vertex.position = glm::vec3(rotation * temp);
-	}
 	mesh->init();
 }
 
