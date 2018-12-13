@@ -23,17 +23,23 @@ void Draisine::generate()
 	}
 	//FRONT LEFT
 	wheels[0].position = glm::vec3(4.5f, 0.5f, 3.65f);
-	//FRONT RIGHT
-	wheels[1].position = glm::vec3(4.5f, 0.5f, -4.35);
 	//BACK LEFT
-	wheels[2].position = glm::vec3(-4.5f, 0.5f, 3.65f);
+	wheels[1].position = glm::vec3(-4.5f, 0.5f, 3.65f);
+	//FRONT RIGHT
+	wheels[2].position = glm::vec3(4.5f, 0.5f, -3.65f);
 	//BACK RIGHT
-	wheels[3].position = glm::vec3(-4.5f, 0.5f, -4.35f);
+	wheels[3].position = glm::vec3(-4.5f, 0.5f, -3.65f);
 		
 	mesh->init();
 }
 
 void Draisine::update(float delta_time, glm::mat4 trans)
 {
+	for (int i = 0; i < 2; ++i)
+	{
+		wheels[i].rotation.x = 90.0f;
+		wheels[i+2].rotation.x = -90.0f;
+	}
+	
 	Node::update(delta_time, trans);
 }
