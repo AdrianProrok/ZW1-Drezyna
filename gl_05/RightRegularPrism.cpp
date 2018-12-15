@@ -7,10 +7,13 @@
 
 namespace engine
 {
-	RightRegularPrism::RightRegularPrism(float height, float radius, GLuint verts, glm::vec3 color, glm::vec3 scale)
+	RightRegularPrism::RightRegularPrism(float height, float radius, GLuint verts, glm::vec3 color, glm::vec3 scale, float secondRadius)
 	{
+		if (secondRadius == 0) {
+			secondRadius = radius;
+		}
 		generateBase(0, radius, verts, color);
-		generateBase(height, radius, verts, color);
+		generateBase(height, secondRadius, verts, color);
 
 		for (GLuint i = 1; i < verts; ++i)
 		{

@@ -122,24 +122,11 @@ void App::logic()
 
 void App::render()
 {
+	glClearColor(0.1f, 0.1f, 0.1f, 0.1f);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
 	scene.render();
-
-	static int n = 10; // ilosc klatek do motion blur
-	static int i = 1;
-	if (i == 1)
-		glAccum(GL_LOAD, 1.0f/n);
-	else
-		glAccum(GL_ACCUM, 1.0f/n);
-	++i;
-
-	if (i >= n)
-	{
-		i = 1;
-		glAccum(GL_RETURN, 1.0f);
-		glfwSwapBuffers(window);
-		glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	}
+	glfwSwapBuffers(window);
 }
 
 bool App::init()
@@ -152,10 +139,10 @@ bool App::init()
 		if (glfwInit() != GL_TRUE)
 			throw std::exception("GLFW initialization failed");
 
-		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-		glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
-		glfwWindowHint(GLFW_SAMPLES, 4);
+		//glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 2);
+		//glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
+		//glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
+		//glfwWindowHint(GLFW_SAMPLES, 4);
 
 		window = glfwCreateWindow(settings.width, settings.height, "GKOM - Drezyna", nullptr, nullptr);
 		if (window == nullptr)
