@@ -1,16 +1,16 @@
 #pragma once
 #include "Node.h"
-#include "LeverTop.h"
+#include "LeverHandle.h"
 #include "RightRegularPrism.h"
 
-class LeverBase : public engine::Node
+class LeverTop : public engine::Node
 {
 public:
-	LeverBase();
-	~LeverBase();
+	LeverTop();
+	~LeverTop();
 
 	void generate();
 	virtual void update(float delta_time, glm::mat4 trans);
 
-	LeverTop lever;
+	LeverHandle handles[2];
 };

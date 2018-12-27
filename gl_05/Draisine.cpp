@@ -41,18 +41,6 @@ void Draisine::generate()
 	addChild(&base);
 	base.generate();
 	base.position = glm::vec3(0.0f, 1.0f, 0.0f);
-
-	/*addChild(&lever);
-	lever.generate();
-	//lever.position = glm::vec3(0.0f, 6.0f, 0.0f);*/
-
-	/*for (LeverHandle& h : handles)
-	{
-		addChild(&h);
-		h.generate();
-	}
-	handles[0].position = glm::vec3(0.0f, 6.0f, 0.0f);
-	handles[1].position = glm::vec3(0.0f, 6.0f, 0.0f);*/
 		
 	mesh->init();
 }
