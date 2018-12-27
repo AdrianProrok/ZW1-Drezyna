@@ -4,6 +4,7 @@
 #include "RightRegularPrism.h"
 #include "Wheel.h"
 #include "Bar.h"
+#include "LeverBase.h"
 
 class Draisine : public engine::Node
 {
@@ -16,4 +17,6 @@ public:
 private:
 	Wheel wheels[4];
 	Bar bars[2];
+	LeverBase base;
+	//Fence fences[20];
 };

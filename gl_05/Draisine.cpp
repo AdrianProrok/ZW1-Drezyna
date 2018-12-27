@@ -35,9 +35,12 @@ void Draisine::generate()
 		addChild(&bar);
 		bar.generate();
 	}
-
 	bars[0].position = glm::vec3(0.0f, 1.5f, 4.462f);
 	bars[1].position = glm::vec3(0.0f, 1.5f, -4.612f);
+
+	addChild(&base);
+	base.generate();
+	base.position = glm::vec3(0.0f, 1.0f, 0.0f);
 		
 	mesh->init();
 }
