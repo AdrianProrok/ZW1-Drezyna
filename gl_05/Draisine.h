@@ -18,6 +18,5 @@ private:
 	Wheel wheels[4];
 	Bar bars[2];
 	LeverBase base;
-	//LeverTop lever;
-	//LeverHandle handles[2];
+	//Fence fences[20];
 };

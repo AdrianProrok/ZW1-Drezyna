@@ -90,6 +90,12 @@
     <ClCompile Include="LeverBase.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="LeverTop.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LeverHandle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="gl_05.frag" />
@@ -162,6 +168,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="LeverBase.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LeverTop.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LeverHandle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
