@@ -96,6 +96,18 @@
     <ClCompile Include="LeverHandle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Fence.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LongConnector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ShortConnector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FenceCover.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="Support.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -177,6 +189,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="LeverHandle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Fence.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LongConnector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ShortConnector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FenceCover.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Support.h">

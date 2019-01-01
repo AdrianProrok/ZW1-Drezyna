@@ -95,9 +95,12 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Desert.cpp" />
     <ClCompile Include="Draisine.cpp" />
+    <ClCompile Include="Fence.cpp" />
+    <ClCompile Include="FenceCover.cpp" />
     <ClCompile Include="LeverBase.cpp" />
     <ClCompile Include="LeverHandle.cpp" />
     <ClCompile Include="LeverTop.cpp" />
+    <ClCompile Include="LongConnector.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="Node.cpp" />
@@ -107,6 +110,7 @@
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Screw.cpp" />
     <ClCompile Include="ShaderProgram.cpp" />
+    <ClCompile Include="ShortConnector.cpp" />
     <ClCompile Include="Support.cpp" />
     <ClCompile Include="Wheel.cpp" />
     <ClCompile Include="WheelSide.cpp" />
@@ -126,10 +130,13 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Desert.h" />
     <ClInclude Include="Draisine.h" />
+    <ClInclude Include="Fence.h" />
+    <ClInclude Include="FenceCover.h" />
     <ClInclude Include="LeverBase.h" />
     <ClInclude Include="LeverHandle.h" />
     <ClInclude Include="LeverTop.h" />
     <ClInclude Include="Light.h" />
+    <ClInclude Include="LongConnector.h" />
     <ClInclude Include="Material.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="Node.h" />
@@ -139,6 +146,7 @@
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Screw.h" />
     <ClInclude Include="ShaderProgram.h" />
+    <ClInclude Include="ShortConnector.h" />
     <ClInclude Include="Skybox.h" />
     <ClInclude Include="Support.h" />
     <ClInclude Include="Wheel.h" />
