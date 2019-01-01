@@ -98,8 +98,6 @@ void Draisine::update(float delta_time, glm::mat4 trans)
 	{
 		wheels[i].rotation.x = 90.0f;
 		wheels[i+2].rotation.x = -90.0f;
-		shortC[i].rotation.x = 90.0f;
-		longC[i].rotation.z = -90.0f;
 
 		bars[i].rotation.x = 90.0f;
 

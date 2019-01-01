@@ -20,5 +20,6 @@ void LongConnector::generate()
 
 void LongConnector::update(float delta_time, glm::mat4 trans)
 {
+	(*this).rotation.z = -90.0f;
 	Node::update(delta_time, trans);
 }
