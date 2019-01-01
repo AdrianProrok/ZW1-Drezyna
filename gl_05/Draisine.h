@@ -5,6 +5,10 @@
 #include "Wheel.h"
 #include "Bar.h"
 #include "LeverBase.h"
+#include "Fence.h"
+#include "FenceCover.h"
+#include "LongConnector.h"
+#include "ShortConnector.h"
 
 class Draisine : public engine::Node
 {
@@ -18,5 +22,9 @@ private:
 	Wheel wheels[4];
 	Bar bars[2];
 	LeverBase base;
-	//Fence fences[20];
+	Fence fences[4];
+	FenceCover covers[4];
+	LongConnector longC[2];
+	ShortConnector shortC[2];
+
 };

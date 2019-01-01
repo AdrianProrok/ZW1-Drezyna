@@ -14,7 +14,7 @@ LeverTop::~LeverTop()
 
 void LeverTop::generate()
 {
-	mesh = new RightRegularPrism(0.2f, 0.5f, 4, glm::vec3(0.0f, 0.5f, 1.0f), glm::vec3(9.0f, 1.0f, 1.0f), 0.5f);
+	mesh = new RightRegularPrism(0.2f, 0.5f, 4, glm::vec3(0.8f, 0.2f, 1.0f), glm::vec3(9.0f, 1.0f, 1.0f), 0.5f);
 
 	for (LeverHandle& h : handles)
 	{

@@ -9,7 +9,7 @@ namespace engine
 {
 	RightRegularPrism::RightRegularPrism(float height, float radius, GLuint verts, glm::vec3 color, glm::vec3 scale, float secondRadius)
 	{
-		if (secondRadius == 0) {
+		if (secondRadius == -1.0f) {
 			secondRadius = radius;
 		}
 		generateBase(0, radius, verts, color);
