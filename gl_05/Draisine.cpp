@@ -35,9 +35,11 @@ void Draisine::generate()
 		addChild(&bar);
 		bar.generate();
 	}
-	bars[0].position = glm::vec3(0.0f, 1.5f, 4.462f);
-	bars[1].position = glm::vec3(0.0f, 1.5f, -4.612f);
-	//LeverBase
+	bars[0].position = glm::vec3(0.0f, 0.0f, 4.839f);
+	bars[1].position = glm::vec3(0.0f, 0.0f, -4.839f);
+	bars[0].rotation.x = -90.0f;
+	bars[1].rotation.x = 90.0f;
+
 	addChild(&base);
 	base.generate();
 	base.position = glm::vec3(0.0f, 1.0f, 0.0f);
@@ -98,8 +100,6 @@ void Draisine::update(float delta_time, glm::mat4 trans)
 	{
 		wheels[i].rotation.x = 90.0f;
 		wheels[i+2].rotation.x = -90.0f;
-
-		bars[i].rotation.x = 90.0f;
 
 		wheels[i].rotation.y += 45.0f*delta_time;
 		if (wheels[i].rotation.y >= 360.0f) rotation.y -= 360.0f;
