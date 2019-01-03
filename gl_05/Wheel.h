@@ -15,7 +15,9 @@ public:
 	virtual void update(float delta_time, glm::mat4 trans);
 
 private:
+
+	void generateScrews(int);
 	WheelSide sides[2];
-	Screw screws[4];
+	std::vector<Screw> screws;
 };
 
