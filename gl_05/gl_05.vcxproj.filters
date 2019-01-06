@@ -111,6 +111,9 @@
     <ClCompile Include="Support.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="LeverConnector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="gl_05.frag" />
@@ -204,6 +207,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Support.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LeverConnector.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

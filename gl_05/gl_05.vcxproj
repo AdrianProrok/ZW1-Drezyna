@@ -98,6 +98,7 @@
     <ClCompile Include="Fence.cpp" />
     <ClCompile Include="FenceCover.cpp" />
     <ClCompile Include="LeverBase.cpp" />
+    <ClCompile Include="LeverConnector.cpp" />
     <ClCompile Include="LeverHandle.cpp" />
     <ClCompile Include="LeverTop.cpp" />
     <ClCompile Include="LongConnector.cpp" />
@@ -133,6 +134,7 @@
     <ClInclude Include="Fence.h" />
     <ClInclude Include="FenceCover.h" />
     <ClInclude Include="LeverBase.h" />
+    <ClInclude Include="LeverConnector.h" />
     <ClInclude Include="LeverHandle.h" />
     <ClInclude Include="LeverTop.h" />
     <ClInclude Include="Light.h" />
