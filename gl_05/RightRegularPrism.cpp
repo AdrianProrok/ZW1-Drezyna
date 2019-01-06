@@ -20,20 +20,20 @@ namespace engine
 		for (GLuint i = 1; i < verts; ++i)
 		{
 			//dolna podstawa
-			faces.push_back({0, i+1, i});
+			faces.push_back({ 0, i + 1, i });
 			//gorna podstawa
-			faces.push_back({verts+1, i+verts+1, i+verts+2});
+			faces.push_back({ verts + 1, i + verts + 1, i + verts + 2 });
 			//boki
-			faces.push_back({i+2*verts+1, i+3*verts+3, i+3*verts+2});
-			faces.push_back({i+2*verts+1, i+2+2*verts, i+3*verts+3});
+			faces.push_back({ i + 2 * verts + 1, i + 3 * verts + 3, i + 3 * verts + 2 });
+			faces.push_back({ i + 2 * verts + 1, i + 2 + 2 * verts, i + 3 * verts + 3 });
 		}
 		//ostatni vert dolnej podstawy z pierwszym
-		faces.push_back({0, 1, verts});
+		faces.push_back({ 0, 1, verts });
 		//ostatni vert gornej podstawy z pierwszym
-		faces.push_back({verts+1, 2*verts+1, verts+2});
+		faces.push_back({ verts + 1, 2 * verts + 1, verts + 2 });
 		//ostatnia scianka boczna
-		faces.push_back({3*verts+1, 4*verts+3, 4*verts+2});
-		faces.push_back({3*verts+1, 3*verts+2, 4*verts+3});
+		faces.push_back({ 3 * verts + 1, 4 * verts + 3, 4 * verts + 2 });
+		faces.push_back({ 3 * verts + 1, 3 * verts + 2, 4 * verts + 3 });
 
 		//obracamy figure o 45 stopni, uzywane przy generacji prostopadloscianow, aby mozna je bylo odrazu skalowac
 		glm::mat4 rotation(1.0f);
@@ -46,7 +46,7 @@ namespace engine
 		}
 
 		this->scale(scale);
-		calculateNormals();
+		calculateNormals(verts);
 	}
 
 	void RightRegularPrism::generateBase(float height, float radius, GLuint verts, glm::vec3 color)
@@ -57,7 +57,7 @@ namespace engine
 		glm::mat4 rotation(1.0f);
 
 		Vertex zeroV = { { 0.0f,  height, 0.0f}, glm::vec3(0.0f), color, {uPos, vPos} };
-		Vertex firstV = { { 0.0f, height, radius}, glm::vec3(0.0f), color, {uPos, vPos+0.25f} };
+		Vertex firstV = { { 0.0f, height, radius}, glm::vec3(0.0f), color, {uPos, vPos + 0.25f} };
 
 		vertices.push_back(zeroV);
 		vertices.push_back(firstV);
@@ -73,10 +73,10 @@ namespace engine
 		{
 			temp = temp * rotation;
 
-			Vertex newVert = { glm::vec3(temp), glm::vec3(0.0f), color, {uPos + temp.x/(radius * 4), vPos + temp.z / (radius * 4)} };
+			Vertex newVert = { glm::vec3(temp), glm::vec3(0.0f), color, {uPos + temp.x / (radius * 4), vPos + temp.z / (radius * 4)} };
 			vertices.push_back(newVert);
 
-			newVert.texture_coords = { (i + 1)* 1.0f/verts , uPos - 0.25f };
+			newVert.texture_coords = { (i + 1)* 1.0f / verts , uPos - 0.25f };
 			verticesCopy.push_back(newVert);
 		}
 
@@ -84,7 +84,7 @@ namespace engine
 		verticesCopy.push_back(firstV);
 	}
 
-	void RightRegularPrism::calculateNormals()
+	void RightRegularPrism::calculateNormals(int verts)
 	{
 		for (Face& face : faces)
 		{
@@ -96,6 +96,14 @@ namespace engine
 			vertices[face.vertex_index[1]].normal += normal;
 			vertices[face.vertex_index[2]].normal += normal;
 		}
+
+		glm::vec3 tempNormal = vertices[3 * verts + 2].normal;
+		vertices[3 * verts + 2].normal += vertices[2 * verts + 2].normal;
+		vertices[2 * verts + 2].normal += tempNormal;
+
+		tempNormal = vertices[4 * verts + 3].normal;
+		vertices[4 * verts + 3].normal += vertices[3 * verts + 3].normal;
+		vertices[3 * verts + 3].normal += tempNormal;
 
 		for (Vertex& vertex : vertices)
 			vertex.normal = normalize(vertex.normal);
