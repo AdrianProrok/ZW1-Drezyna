@@ -24,16 +24,16 @@ namespace engine
 			//gorna podstawa
 			faces.push_back({verts+1, i+verts+1, i+verts+2});
 			//boki
-			faces.push_back({i+2*verts+1, i+3*verts+2, i+3*verts+1});
-			faces.push_back({i+2*verts+1, i+2+2*verts, i+3*verts+2});
+			faces.push_back({i+2*verts+1, i+3*verts+3, i+3*verts+2});
+			faces.push_back({i+2*verts+1, i+2+2*verts, i+3*verts+3});
 		}
 		//ostatni vert dolnej podstawy z pierwszym
 		faces.push_back({0, 1, verts});
 		//ostatni vert gornej podstawy z pierwszym
 		faces.push_back({verts+1, 2*verts+1, verts+2});
 		//ostatnia scianka boczna
-		faces.push_back({3*verts+1, 3*verts+2, 4*verts+1});
-		faces.push_back({3*verts+1, 2*verts+2, 3*verts+2});
+		faces.push_back({3*verts+1, 4*verts+3, 4*verts+2});
+		faces.push_back({3*verts+1, 3*verts+2, 4*verts+3});
 
 		//obracamy figure o 45 stopni, uzywane przy generacji prostopadloscianow, aby mozna je bylo odrazu skalowac
 		glm::mat4 rotation(1.0f);
@@ -51,14 +51,18 @@ namespace engine
 
 	void RightRegularPrism::generateBase(float height, float radius, GLuint verts, glm::vec3 color)
 	{
+		float uPos = height == 0 ? 0.25f : 0.75f;
+		float vPos = 0.75f;
+
 		glm::mat4 rotation(1.0f);
 
-		Vertex zeroV = { { 0.0f,  height, 0.0f}, glm::vec3(0.0f), color, {0.0f, 0.0f} };
-		Vertex firstV = { { 0.0f, height, radius}, glm::vec3(0.0f), color, {0.0f, 0.0f} };
+		Vertex zeroV = { { 0.0f,  height, 0.0f}, glm::vec3(0.0f), color, {uPos, vPos} };
+		Vertex firstV = { { 0.0f, height, radius}, glm::vec3(0.0f), color, {uPos, vPos+0.25f} };
 
 		vertices.push_back(zeroV);
 		vertices.push_back(firstV);
 
+		firstV.texture_coords = { 0.0f, uPos - 0.25f };
 		verticesCopy.push_back(firstV);
 
 		rotation = glm::rotate(rotation, glm::radians(360.0f / (float)verts), glm::vec3(0, 1, 0));
@@ -68,11 +72,16 @@ namespace engine
 		for (GLuint i = 0; i < verts - 1; ++i)
 		{
 			temp = temp * rotation;
-			Vertex newVert = { glm::vec3(temp), glm::vec3(0.0f), color, {0.0f, 0.0f} };
+
+			Vertex newVert = { glm::vec3(temp), glm::vec3(0.0f), color, {uPos + temp.x/(radius * 4), vPos + temp.z / (radius * 4)} };
 			vertices.push_back(newVert);
 
+			newVert.texture_coords = { (i + 1)* 1.0f/verts , uPos - 0.25f };
 			verticesCopy.push_back(newVert);
 		}
+
+		firstV.texture_coords = { 1.0f, uPos - 0.25f };
+		verticesCopy.push_back(firstV);
 	}
 
 	void RightRegularPrism::calculateNormals()
