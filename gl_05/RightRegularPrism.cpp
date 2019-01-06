@@ -15,6 +15,8 @@ namespace engine
 		generateBase(0, radius, verts, color);
 		generateBase(height, secondRadius, verts, color);
 
+		vertices.insert(vertices.end(), verticesCopy.begin(), verticesCopy.end());
+
 		for (GLuint i = 1; i < verts; ++i)
 		{
 			//dolna podstawa
@@ -22,16 +24,16 @@ namespace engine
 			//gorna podstawa
 			faces.push_back({verts+1, i+verts+1, i+verts+2});
 			//boki
-			faces.push_back({i, i+verts+2, i+verts+1});
-			faces.push_back({i, i+1, i+verts+2});
+			faces.push_back({i+2*verts+1, i+3*verts+2, i+3*verts+1});
+			faces.push_back({i+2*verts+1, i+2+2*verts, i+3*verts+2});
 		}
 		//ostatni vert dolnej podstawy z pierwszym
 		faces.push_back({0, 1, verts});
 		//ostatni vert gornej podstawy z pierwszym
 		faces.push_back({verts+1, 2*verts+1, verts+2});
 		//ostatnia scianka boczna
-		faces.push_back({verts, verts+2, 2*verts+1});
-		faces.push_back({ verts, 1, verts + 2 });
+		faces.push_back({3*verts+1, 3*verts+2, 4*verts+1});
+		faces.push_back({3*verts+1, 2*verts+2, 3*verts+2});
 
 		//obracamy figure o 45 stopni, uzywane przy generacji prostopadloscianow, aby mozna je bylo odrazu skalowac
 		glm::mat4 rotation(1.0f);
@@ -57,6 +59,8 @@ namespace engine
 		vertices.push_back(zeroV);
 		vertices.push_back(firstV);
 
+		verticesCopy.push_back(firstV);
+
 		rotation = glm::rotate(rotation, glm::radians(360.0f / (float)verts), glm::vec3(0, 1, 0));
 
 		glm::vec4 temp = glm::vec4(firstV.position, 1.0f);
@@ -66,6 +70,8 @@ namespace engine
 			temp = temp * rotation;
 			Vertex newVert = { glm::vec3(temp), glm::vec3(0.0f), color, {0.0f, 0.0f} };
 			vertices.push_back(newVert);
+
+			verticesCopy.push_back(newVert);
 		}
 	}
 

@@ -12,5 +12,7 @@ namespace engine
 	private:
 		void generateBase(float, float, GLuint, glm::vec3);
 		void calculateNormals();
+
+		std::vector<Vertex> verticesCopy;
 	};
 }
