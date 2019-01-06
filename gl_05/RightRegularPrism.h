@@ -11,7 +11,7 @@ namespace engine
 		~RightRegularPrism();
 	private:
 		void generateBase(float, float, GLuint, glm::vec3);
-		void calculateNormals();
+		void calculateNormals(int verts);
 
 		std::vector<Vertex> verticesCopy;
 	};
