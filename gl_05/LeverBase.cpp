@@ -16,9 +16,9 @@ void LeverBase::generate()
 {
 	mesh = new RightRegularPrism(5.0f, 1.0f, 4, glm::vec3(0.0f, 0.5f, 1.0f), glm::vec3(1.0f, 1.0f, 1.0f), 0.5f);
 
-	addChild(&lever);
-	lever.generate();
-	lever.position = glm::vec3(0.0f, 5.0f, 0.0f);
+	addChild(&leverCon);
+	leverCon.generate();
+	leverCon.position = glm::vec3(0.0f, 5.15f, -0.2f);
 
 	mesh->init();
 }
