@@ -21,6 +21,5 @@ void Vane::generate()
 
 void Vane::update(float delta_time, glm::mat4 trans)
 {
-	//this->rotation.x = 20.0f;
 	Node::update(delta_time, trans);
 }

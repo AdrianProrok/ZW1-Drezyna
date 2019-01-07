@@ -26,6 +26,6 @@ void LeverConnector::generate()
 
 void LeverConnector::update(float delta_time, glm::mat4 trans)
 {
-	(*this).rotation.x = 90.0f;
+	this->rotation.x = 90.0f;
 	Node::update(delta_time, trans);
 }
