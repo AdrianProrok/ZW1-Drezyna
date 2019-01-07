@@ -1,17 +1,16 @@
 #pragma once
 #include "Node.h"
 #include "RightRegularPrism.h"
-#include "WindmillHolder.h"
+//#include "WindmillVane.h"
 
-class WindmillBase : public engine::Node
+class WindmillHolder : public engine::Node
 {
 public:
-	WindmillBase();
-	~WindmillBase();
+	WindmillHolder();
+	~WindmillHolder();
 
 	void generate();
 	virtual void update(float delta_time, glm::mat4 trans);
 
-	WindmillHolder holder;
+	//WindmillVane vanes[5];
 };
-

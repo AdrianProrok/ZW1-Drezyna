@@ -16,9 +16,9 @@ void WindmillBase::generate()
 {
 	mesh = new RightRegularPrism(4.0f, 1.0f, 4, glm::vec3(0.7f, 0.2f, 0.345f), glm::vec3(0.52f, 1.0f, 2.0f));
 
-	/*addChild(&holder);
+	addChild(&holder);
 	holder.generate();
-	holder.position = glm::vec3(0.0f, 0.2f, -0.15f);*/
+	holder.position = glm::vec3(0.0f, 3.0f, 0.0f);
 
 	mesh->init();
 }

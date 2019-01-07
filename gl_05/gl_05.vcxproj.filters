@@ -117,6 +117,9 @@
     <ClCompile Include="WindmillBase.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="WindmillHolder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="gl_05.frag" />
@@ -216,6 +219,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="WindmillBase.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WindmillHolder.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
