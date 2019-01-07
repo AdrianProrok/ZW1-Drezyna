@@ -7,7 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Include", "Include", "{44FD
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{BFED2AB6-2C7D-40B6-9DC6-3B904D142C1C}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gl_05", "gl_05\gl_05.vcxproj", "{B00CDD07-BE64-4A86-8B73-FAC569267C9A}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GKOM-Drezyna", "gl_05\gl_05.vcxproj", "{B00CDD07-BE64-4A86-8B73-FAC569267C9A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,6 +22,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{44FD14EF-F7FA-42CC-B618-E71A16B4EFF8} = {BFED2AB6-2C7D-40B6-9DC6-3B904D142C1C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AEE8E7BC-5943-4D64-834A-B8C364788E39}
