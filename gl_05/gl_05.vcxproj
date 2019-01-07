@@ -113,6 +113,7 @@
     <ClCompile Include="ShaderProgram.cpp" />
     <ClCompile Include="ShortConnector.cpp" />
     <ClCompile Include="Support.cpp" />
+    <ClCompile Include="Vane.cpp" />
     <ClCompile Include="Wheel.cpp" />
     <ClCompile Include="WheelSide.cpp" />
     <ClCompile Include="WindmillBase.cpp" />
@@ -153,6 +154,7 @@
     <ClInclude Include="ShortConnector.h" />
     <ClInclude Include="Skybox.h" />
     <ClInclude Include="Support.h" />
+    <ClInclude Include="Vane.h" />
     <ClInclude Include="Wheel.h" />
     <ClInclude Include="WheelSide.h" />
     <ClInclude Include="WindmillBase.h" />

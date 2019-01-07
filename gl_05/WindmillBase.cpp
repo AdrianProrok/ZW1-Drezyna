@@ -18,7 +18,7 @@ void WindmillBase::generate()
 
 	addChild(&holder);
 	holder.generate();
-	holder.position = glm::vec3(0.0f, 3.0f, 0.0f);
+	holder.position = glm::vec3(-0.35f, 3.0f, 0.0f);
 
 	mesh->init();
 }
