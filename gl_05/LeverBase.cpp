@@ -25,7 +25,7 @@ void LeverBase::generate()
 
 void LeverBase::update(float delta_time, glm::mat4 trans)
 {
-	leverCon.rotation.y += leverCon.angle;
+	leverCon.rotation.y += leverCon.angle*delta_time;
 	if (leverCon.rotation.y >= 30.0f)
 		leverCon.angle *= -1.0f;
 	else if(leverCon.rotation.y <= -30.0f)
