@@ -6,7 +6,7 @@ using namespace engine;
 
 LeverConnector::LeverConnector()
 {
-	this->angle = 0.375f;
+	this->angle = 30.0f;
 }
 
 LeverConnector::~LeverConnector()
