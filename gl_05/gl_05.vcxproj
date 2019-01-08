@@ -113,8 +113,11 @@
     <ClCompile Include="ShaderProgram.cpp" />
     <ClCompile Include="ShortConnector.cpp" />
     <ClCompile Include="Support.cpp" />
+    <ClCompile Include="Vane.cpp" />
     <ClCompile Include="Wheel.cpp" />
     <ClCompile Include="WheelSide.cpp" />
+    <ClCompile Include="WindmillBase.cpp" />
+    <ClCompile Include="WindmillHolder.cpp" />
     <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -151,8 +154,11 @@
     <ClInclude Include="ShortConnector.h" />
     <ClInclude Include="Skybox.h" />
     <ClInclude Include="Support.h" />
+    <ClInclude Include="Vane.h" />
     <ClInclude Include="Wheel.h" />
     <ClInclude Include="WheelSide.h" />
+    <ClInclude Include="WindmillBase.h" />
+    <ClInclude Include="WindmillHolder.h" />
     <ClInclude Include="World.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -9,6 +9,7 @@
 #include "FenceCover.h"
 #include "LongConnector.h"
 #include "ShortConnector.h"
+#include "WindmillBase.h"
 
 class Draisine : public engine::Node
 {
@@ -26,5 +27,6 @@ private:
 	FenceCover covers[4];
 	LongConnector longC[2];
 	ShortConnector shortC[2];
+	WindmillBase millBase;
 
 };

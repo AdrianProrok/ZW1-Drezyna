@@ -49,16 +49,7 @@ void Draisine::generate()
 		addChild(&fence);
 		fence.generate();
 	}
-	/*int amountInRowX = 11;
-	int amountInRowY = 5;
-	for (int i = 0; i < amountInRowX; i++) {
-		fences[i].position = glm::vec3(6.8f - 1.36f*i, 1.0f, 3.3f);
-		fences[i+ amountInRowX].position = glm::vec3(6.8f - 1.36f*i, 1.0f, -3.3f);
-	}
-	for (int i = amountInRowX; i < amountInRowY+amountInRowX; i++) {
-		fences[i + amountInRowX].position = glm::vec3(6.8f, 1.0f, 2.2f - 1.1f*(i - amountInRowX));
-		fences[i + amountInRowX + amountInRowY].position = glm::vec3(-6.8f, 1.0f, 2.2f-1.1f*(i-amountInRowX));
-	} */
+
 	fences[0].position = glm::vec3( 6.8f, 1.0f,  3.3f);
 	fences[1].position = glm::vec3(-6.8f, 1.0f, -3.3f);
 	fences[2].position = glm::vec3( 6.8f, 1.0f, -3.3f);
@@ -90,6 +81,12 @@ void Draisine::generate()
 	}
 	shortC[0].position = glm::vec3(6.8f, 2.5f, -3.3f);
 	shortC[1].position = glm::vec3(-6.8f, 2.5f, -3.3f);
+
+	//WindMill
+
+	addChild(&millBase);
+	millBase.generate();
+	millBase.position = glm::vec3(-6.7f, 0.0f, 0.0f);
 
 	mesh->init();
 }
