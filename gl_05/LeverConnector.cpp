@@ -15,6 +15,8 @@ LeverConnector::~LeverConnector()
 
 void LeverConnector::generate()
 {
+	this->rotation.x = 90.0f;
+
 	mesh = new RightRegularPrism(0.4f, 0.3f, 64, glm::vec3(0.2f, 0.5f, 0.7f));
 
 	addChild(&lever);
@@ -26,6 +28,5 @@ void LeverConnector::generate()
 
 void LeverConnector::update(float delta_time, glm::mat4 trans)
 {
-	this->rotation.x = 90.0f;
 	Node::update(delta_time, trans);
 }

@@ -15,6 +15,8 @@ LeverTop::~LeverTop()
 void LeverTop::generate()
 {
 	mesh = new RightRegularPrism(0.2f, 0.5f, 4, glm::vec3(0.8f, 0.2f, 1.0f), glm::vec3(9.0f, 1.0f, 1.0f), 0.5f);
+	
+	(*this).rotation.x = -90.0f;
 
 	for (LeverHandle& h : handles)
 	{
@@ -28,6 +30,5 @@ void LeverTop::generate()
 
 void LeverTop::update(float delta_time, glm::mat4 trans)
 {
-	(*this).rotation.x = -90.0f;
 	Node::update(delta_time, trans);
 }

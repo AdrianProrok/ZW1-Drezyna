@@ -23,12 +23,17 @@ void Draisine::generate()
 	}
 	//FRONT LEFT
 	wheels[0].position = glm::vec3(4.5f, 0.5f, 3.65f);
+	wheels[0].rotation.x = 90.0f;
 	//BACK LEFT
 	wheels[1].position = glm::vec3(-4.5f, 0.5f, 3.65f);
+	wheels[1].rotation.x = 90.0f;
 	//FRONT RIGHT
 	wheels[2].position = glm::vec3(4.5f, 0.5f, -3.65f);
+	wheels[2].rotation.x = -90.0f;
 	//BACK RIGHT
 	wheels[3].position = glm::vec3(-4.5f, 0.5f, -3.65f);
+	wheels[3].rotation.x = -90.0f;
+
 	//Bars
 	for (Bar& bar : bars)
 	{
@@ -95,14 +100,11 @@ void Draisine::update(float delta_time, glm::mat4 trans)
 {
 	for (int i = 0; i < 2; ++i)
 	{
-		wheels[i].rotation.x = 90.0f;
-		wheels[i+2].rotation.x = -90.0f;
-
 		wheels[i].rotation.y += 45.0f*delta_time;
-		if (wheels[i].rotation.y >= 360.0f) rotation.y -= 360.0f;
+		if (wheels[i].rotation.y >= 360.0f) wheels[i].rotation.y -= 360.0f;
 
 		wheels[i + 2].rotation.y -= 45.0f*delta_time;
-		if (wheels[i + 2].rotation.y <= 0.0f) rotation.y += 360.0f;
+		if (wheels[i + 2].rotation.y <= 0.0f) wheels[i + 2].rotation.y += 360.0f;
 
 		bars[i].position.x = -1.0f*sin(glm::radians(wheels[i].rotation.y));
 		bars[i].position.y = 0.5f + 1.0f*cos(glm::radians(wheels[i].rotation.y));

@@ -90,9 +90,9 @@ void App::run()
 		time_d = std::chrono::duration_cast<std::chrono::microseconds>(time_end - time_start);
 		time_start = time_end;
 
-		static long long time_avg = 0;
+		//static long long time_avg = 0;
 		static long long time_refresh = 0;
-		time_avg = (time_avg + time_d.count()) / 2;
+		//time_avg = (time_avg + time_d.count()) / 2;
 		time_refresh += time_d.count();
 
 		if (time_refresh > 500000)
@@ -122,7 +122,7 @@ void App::logic()
 
 void App::render()
 {
-	glClearColor(0.1f, 0.1f, 0.1f, 0.1f);
+	glClearColor(0.2f, 0.35f, 0.7f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	scene.render();

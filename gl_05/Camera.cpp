@@ -78,7 +78,7 @@ namespace engine
 
 	void Camera::setProj(float aspect_ratio, float view_angle)
 	{
-		projection = glm::perspective(glm::radians(view_angle), aspect_ratio, 0.001f, 100.0f);
+		projection = glm::perspective(glm::radians(view_angle), aspect_ratio, 0.1f, 1000.0f);
 
 		GLuint projLoc = glGetUniformLocation(scene->getCurrentShaderProgram()->get_programID(), "projection");
 		glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(projection));
