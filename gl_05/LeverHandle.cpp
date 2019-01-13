@@ -2,6 +2,8 @@
 
 #include <glm/gtc/matrix_transform.hpp>
 
+#include "Scene.h"
+
 using namespace engine;
 
 LeverHandle::LeverHandle()

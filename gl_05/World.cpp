@@ -16,7 +16,6 @@ World::World()
 
 World::~World()
 {
-	
 }
 
 void World::init(float aspect_ratio)
@@ -32,28 +31,12 @@ void World::init(float aspect_ratio)
 	// I ca³a reszta
 
 	camera.setScene(this);
-	camera.set(glm::vec3(0.0f, 0.0f, 15.0f), glm::vec3(0.0f, 180.0f, 0.0f));
+	camera.set(glm::vec3(0.0f, -4.0f, 15.0f), glm::vec3(0.0f, 180.0f, 0.0f));
 	
-	light[0].color = { 1.0f, 1.0f, 1.0f };
-	light[0].intensity = 3000000.0f;
-	light[0].position = { 1000.0f, 1000.0f, 1000.0f };
-	
-	light[1].color = { 1.0f, 0.0f, 0.0f };
-	light[1].intensity = 100.0f;
-	light[1].position = { 15.0f, 0.0f, 0.0f };
-	
-	light[2].color = { 0.0f, 1.0f, 0.0f };
-	light[2].intensity = 100.0f;
-	light[2].position = { 15.0f, 0.0f, 6.0f };
-	
-	light[3].color = { 0.0f, 0.0f, 1.0f };
-	light[3].intensity = 100.0f;
-	light[3].position = { 18.0f, 0.0f, 3.0f };
-
-	lights.push_back(&light[0]);
+	/*lights.push_back(&light[0]);
 	lights.push_back(&light[1]);
 	lights.push_back(&light[2]);
-	lights.push_back(&light[3]);
+	lights.push_back(&light[3]);*/
 	
 	Scene::init(aspect_ratio);
 }
@@ -65,7 +48,7 @@ void World::render()
 
 void World::update(float delta_time, const Input& input)
 {	
-	static int light_index = 0;
+	static unsigned int light_index = 0;
 	static int light_sens = 100;
 
 	if (input.keyboard.keys_pressed[GLFW_KEY_0])
@@ -77,17 +60,17 @@ void World::update(float delta_time, const Input& input)
 	if (input.keyboard.keys_pressed[GLFW_KEY_3])
 		light_index = 3;
 	if (input.keyboard.keys_pressed[GLFW_KEY_4])
-		light_index = 0;
+		light_index = 4;
 	if (input.keyboard.keys_pressed[GLFW_KEY_5])
-		light_index = 0;
+		light_index = 5;
 	if (input.keyboard.keys_pressed[GLFW_KEY_6])
-		light_index = 0;
+		light_index = 6;
 	if (input.keyboard.keys_pressed[GLFW_KEY_7])
-		light_index = 0;
+		light_index = 7;
 	if (input.keyboard.keys_pressed[GLFW_KEY_8])
-		light_index = 0;
+		light_index = 8;
 	if (input.keyboard.keys_pressed[GLFW_KEY_9])
-		light_index = 0;
+		light_index = 9;
 
 	if (light_index == 0)
 		light_sens = 1000000;
@@ -98,16 +81,18 @@ void World::update(float delta_time, const Input& input)
 		ambientStrength -= delta_time * 0.5f;
 	if (input.keyboard.keys_pressed[GLFW_KEY_I])
 		ambientStrength += delta_time * 0.5f;
-	if (input.keyboard.keys_pressed[GLFW_KEY_J])
-		light[light_index].intensity -= delta_time * light_sens;
-	if (input.keyboard.keys_pressed[GLFW_KEY_K])
-		light[light_index].intensity += delta_time * light_sens;
-	if (input.keyboard.keys_pressed[GLFW_KEY_H]) {
-		light[0].intensity = 3000000.0f;
+	if (lights.size() > light_index) {
+		if (input.keyboard.keys_pressed[GLFW_KEY_J])
+			lights[light_index]->intensity -= delta_time * light_sens;
+		if (input.keyboard.keys_pressed[GLFW_KEY_K])
+			lights[light_index]->intensity += delta_time * light_sens;
+		if (lights[light_index]->intensity < 0)
+			lights[light_index]->intensity = 0;
 	}
-
-	if (light[light_index].intensity < 0)
-		light[light_index].intensity = 0;
+	if( lights.size() > 0 )
+		if (input.keyboard.keys_pressed[GLFW_KEY_H]) {
+			lights[0]->intensity = 3000000.0f;
+		}	
 	if (ambientStrength < 0)
 		ambientStrength = 0;
 

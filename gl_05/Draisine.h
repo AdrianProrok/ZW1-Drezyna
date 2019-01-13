@@ -28,5 +28,4 @@ private:
 	LongConnector longC[2];
 	ShortConnector shortC[2];
 	WindmillBase millBase;
-
 };

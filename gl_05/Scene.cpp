@@ -26,6 +26,10 @@ namespace engine
 
 	void Scene::update(float delta_time, const Input& input)
 	{
+		updateCamera(delta_time, input);
+		if (root_node)
+			root_node->update(delta_time, glm::mat4());
+
 		int i = 0;
 		GLuint ambientLightLoc = glGetUniformLocation(getCurrentShaderProgram()->get_programID(), "ambientStrength");
 		glUniform1f(ambientLightLoc, ambientStrength);
@@ -34,7 +38,7 @@ namespace engine
 		glUniform1i(numberOfLightsLoc, lights.size());
 		for (auto light : lights) {
 			GLuint lightPosLoc = glGetUniformLocation(getCurrentShaderProgram()->get_programID(), ("lightPos[" + std::to_string(i) + "]").c_str());
-			glUniform3fv(lightPosLoc, 1, glm::value_ptr(light->position));
+			glUniform3fv(lightPosLoc, 1, glm::value_ptr(light->lightPos));
 
 			GLuint lightColorLoc = glGetUniformLocation(getCurrentShaderProgram()->get_programID(), ("lightColor[" + std::to_string(i) + "]").c_str());
 			glUniform3fv(lightColorLoc, 1, glm::value_ptr(light->color));
@@ -43,10 +47,6 @@ namespace engine
 			glUniform1f(lightIntensLoc, light->intensity);
 			++i;
 		}
-
-		updateCamera(delta_time, input);
-		if (root_node)
-			root_node->update(delta_time, glm::mat4());
 	}
 
 	void Scene::setRootNode(Node* node)
@@ -76,6 +76,11 @@ namespace engine
 	Camera* Scene::getCamera()
 	{
 		return &camera;
+	}
+
+	void Scene::addLight(Light * light)
+	{
+		lights.push_back(light);
 	}
 
 	void Scene::updateCamera(float delta_time, const Input& input)
