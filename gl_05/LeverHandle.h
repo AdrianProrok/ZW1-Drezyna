@@ -1,6 +1,7 @@
 #pragma once
 #include "Node.h"
 #include "RightRegularPrism.h"
+#include "Light.h"
 
 class LeverHandle : public engine::Node
 {

@@ -105,6 +105,13 @@ namespace engine
 		vertices[4 * verts + 3].normal += vertices[3 * verts + 3].normal;
 		vertices[3 * verts + 3].normal += tempNormal;
 
+		for (int i = 0; i < verts+1; ++i)
+		{
+			glm::vec3 tempNormal = vertices[i + 2 * verts + 2].normal;
+			vertices[i + 2 * verts + 2].normal += vertices[i + 3 * verts + 3].normal;
+			vertices[i + 3 * verts + 3].normal += tempNormal;
+		}
+
 		for (Vertex& vertex : vertices)
 			vertex.normal = normalize(vertex.normal);
 	}

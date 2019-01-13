@@ -37,6 +37,7 @@ namespace engine
 		Camera* getCamera();
 
 		//void addLight(glm::vec3 position, glm::vec3 color, float intensity);
+		void addLight(Light* light);
 	protected:
 
 		void setRootNode(Node* node);
@@ -53,7 +54,8 @@ namespace engine
 		Camera camera;
 		
 		// Œwiat³a
-		std::list<Light> lights;
+		std::vector<Light*> lights;
+		float ambientStrength;
 
 		glm::mat4 view;
 		glm::mat4 projection;

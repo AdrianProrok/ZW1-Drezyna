@@ -38,14 +38,16 @@ namespace engine
 
 		void addChild(Node* child);
 
+		void setSelfIllumination(bool isSelfIllumination);
+
 	protected:
 		Mesh* mesh;
 		Scene* scene;
-
-		
 	
 	private:
 		std::list<Node*> children;
 		Node* parent;
+
+		bool isSelfIlluminated;
 	};
 }

@@ -14,5 +14,5 @@ public:
 	virtual void update(float delta_time, const Input& input);
 private:
 	Desert desert;
-
+	//engine::Light light[4];
 };

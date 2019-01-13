@@ -101,6 +101,7 @@
     <ClCompile Include="LeverConnector.cpp" />
     <ClCompile Include="LeverHandle.cpp" />
     <ClCompile Include="LeverTop.cpp" />
+    <ClCompile Include="Light.cpp" />
     <ClCompile Include="LongConnector.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mesh.cpp" />
