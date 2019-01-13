@@ -53,7 +53,7 @@ namespace engine
 		Camera camera;
 		
 		// Œwiat³a
-		std::list<Light> lights;
+		std::list<Light*> lights;
 
 		glm::mat4 view;
 		glm::mat4 projection;

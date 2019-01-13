@@ -1,7 +1,7 @@
 #include "Scene.h"
 #include "App.h"
 #include <glm/vec3.hpp>
-
+#include <string>
 
 namespace engine
 {
@@ -25,6 +25,21 @@ namespace engine
 
 	void Scene::update(float delta_time, const Input& input)
 	{
+		int i = 0;
+		GLuint numberOfLightsLoc = glGetUniformLocation(getCurrentShaderProgram()->get_programID(), "numberOfLights");
+		glUniform1i(numberOfLightsLoc, lights.size());
+		for (auto light : lights) {
+			GLuint lightPosLoc = glGetUniformLocation(getCurrentShaderProgram()->get_programID(), ("lightPos[" + std::to_string(i) + "]").c_str());
+			glUniform3fv(lightPosLoc, 1, glm::value_ptr(light->position));
+
+			GLuint lightColorLoc = glGetUniformLocation(getCurrentShaderProgram()->get_programID(), ("lightColor[" + std::to_string(i) + "]").c_str());
+			glUniform3fv(lightColorLoc, 1, glm::value_ptr(light->color));
+
+			GLuint lightIntensLoc = glGetUniformLocation(getCurrentShaderProgram()->get_programID(), ("lightIntens[" + std::to_string(i) + "]").c_str());
+			glUniform1f(lightIntensLoc, light->intensity);
+			++i;
+		}
+
 		updateCamera(delta_time, input);
 		if (root_node)
 			root_node->update(delta_time, glm::mat4());

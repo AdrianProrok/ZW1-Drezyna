@@ -5,6 +5,10 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+#include <string>
+
+#include "App.h"
+
 World::World()
 {
 	
@@ -30,24 +34,27 @@ void World::init(float aspect_ratio)
 	camera.setScene(this);
 	camera.set(glm::vec3(0.0f, 0.0f, 15.0f), glm::vec3(0.0f, 180.0f, 0.0f));
 	
-	/*light.color = { 1.0f, 1.0f, 1.0f };
-	light.intensity = 2000.0f;
-	light.position = { 1000.0f, 1000.0f, 1000.0f };*/
-	light.color = { 1.0f, 1.0f, 1.0f };
-	light.intensity = 10.0f;
-	light.position = { 15.0f, 0.0f, 0.0f };
+	light[0].color = { 1.0f, 1.0f, 1.0f };
+	light[0].intensity = 3000000.0f;
+	light[0].position = { 1000.0f, 1000.0f, 1000.0f };
+	
+	light[1].color = { 1.0f, 0.0f, 0.0f };
+	light[1].intensity = 100.0f;
+	light[1].position = { 15.0f, 0.0f, 0.0f };
+	
+	light[2].color = { 0.0f, 1.0f, 0.0f };
+	light[2].intensity = 100.0f;
+	light[2].position = { 15.0f, 0.0f, 6.0f };
+	
+	light[3].color = { 0.0f, 0.0f, 1.0f };
+	light[3].intensity = 100.0f;
+	light[3].position = { 18.0f, 0.0f, 3.0f };
 
-	GLuint lightPosLoc = glGetUniformLocation(getCurrentShaderProgram()->get_programID(), "lightPos");
-	glUniform3fv(lightPosLoc, 1, glm::value_ptr(light.position));
-
-	GLuint lightColorLoc = glGetUniformLocation(getCurrentShaderProgram()->get_programID(), "lightColor");
-	glUniform3fv(lightColorLoc, 1, glm::value_ptr(light.color));
-
-	GLuint lightIntensLoc = glGetUniformLocation(getCurrentShaderProgram()->get_programID(), "lightIntens");
-	glUniform1f(lightIntensLoc, light.intensity);
-
-	//lights.push_back(light);
-
+	lights.push_back(&light[0]);
+	lights.push_back(&light[1]);
+	lights.push_back(&light[2]);
+	lights.push_back(&light[3]);
+	
 	Scene::init(aspect_ratio);
 }
 
@@ -58,5 +65,16 @@ void World::render()
 
 void World::update(float delta_time, const Input& input)
 {	
+	if (input.keyboard.keys_pressed[GLFW_KEY_J])
+		light[0].intensity -= delta_time * 1000000;
+	if (input.keyboard.keys_pressed[GLFW_KEY_K])
+		light[0].intensity += delta_time * 1000000;
+	if (input.keyboard.keys_pressed[GLFW_KEY_H]) {
+		light[0].intensity = 3000000.0f;
+	}
+
+	if (light[0].intensity < 0)
+		light[0].intensity = 0;
+
 	Scene::update(delta_time, input);
 }

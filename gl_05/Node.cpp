@@ -16,6 +16,8 @@ namespace engine
 		position = glm::vec3(0.0f, 0.0f, 0.0f);
 		rotation = glm::vec3(0.0f, 0.0f, 0.0f);
 		scale = glm::vec3(1.0f, 1.0f, 1.0f);
+
+		isSelfIlluminated = false;
 	}
 
 	Node::~Node()
@@ -29,6 +31,9 @@ namespace engine
 		// 1. Dane o przesuniêciu, skalowaniu i obrocie dla shadera
 		// 2. Rysowanie
 		// 3. Rysowanie wszystkich dzieci
+
+		GLuint isSelfIlluminatedLoc = glGetUniformLocation(scene->getCurrentShaderProgram()->get_programID(), "selfIllumination");
+		glUniform1i(isSelfIlluminatedLoc, isSelfIlluminated);
 
 		GLuint transformLoc = glGetUniformLocation(scene->getCurrentShaderProgram()->get_programID(), "transform");
 		glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(trans));
@@ -92,5 +97,9 @@ namespace engine
 	Node* Node::getParent()
 	{
 		return this->parent;
+	}
+
+	void Node::setSelfIllumination(bool isSelfIlluminated) {
+		this->isSelfIlluminated = isSelfIlluminated;
 	}
 }
