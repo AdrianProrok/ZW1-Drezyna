@@ -30,15 +30,23 @@ void World::init(float aspect_ratio)
 	camera.setScene(this);
 	camera.set(glm::vec3(0.0f, 0.0f, 15.0f), glm::vec3(0.0f, 180.0f, 0.0f));
 	
+	/*light.color = { 1.0f, 1.0f, 1.0f };
+	light.intensity = 2000.0f;
+	light.position = { 1000.0f, 1000.0f, 1000.0f };*/
 	light.color = { 1.0f, 1.0f, 1.0f };
-	light.intensity = 1.0f;
-	light.position = { 0.0f, 15.0f, 0.0f };
+	light.intensity = 10.0f;
+	light.position = { 15.0f, 0.0f, 0.0f };
 
 	GLuint lightPosLoc = glGetUniformLocation(getCurrentShaderProgram()->get_programID(), "lightPos");
 	glUniform3fv(lightPosLoc, 1, glm::value_ptr(light.position));
 
 	GLuint lightColorLoc = glGetUniformLocation(getCurrentShaderProgram()->get_programID(), "lightColor");
 	glUniform3fv(lightColorLoc, 1, glm::value_ptr(light.color));
+
+	GLuint lightIntensLoc = glGetUniformLocation(getCurrentShaderProgram()->get_programID(), "lightIntens");
+	glUniform1f(lightIntensLoc, light.intensity);
+
+	//lights.push_back(light);
 
 	Scene::init(aspect_ratio);
 }

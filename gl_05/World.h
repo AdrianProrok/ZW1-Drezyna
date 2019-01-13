@@ -15,4 +15,5 @@ public:
 private:
 	Desert desert;
 	engine::Light light;
+	engine::Light light2;
 };
