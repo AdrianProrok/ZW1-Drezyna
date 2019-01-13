@@ -15,7 +15,7 @@ Desert::~Desert()
 
 void Desert::generate()
 {
-	mesh = new RightRegularPrism(0.001f, 500.0f, 4, glm::vec3(0.761f, 0.698f, 0.502f), glm::vec3(1.0f, 1.0f, 0.2f));
+	mesh = new RightRegularPrism(0.01f, 500.0f, 4, glm::vec3(0.761f, 0.698f, 0.502f), glm::vec3(1.0f, 1.0f, 0.2f));
 
 	addChild(&draisine);
 	draisine.generate();
