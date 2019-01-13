@@ -13,5 +13,5 @@ public:
 	virtual void update(float delta_time, glm::mat4 trans);
 
 	LeverTop lever;
-	int angle;
+	float angle;
 };
