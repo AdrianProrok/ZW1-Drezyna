@@ -9,6 +9,7 @@ namespace engine
 	{
 		root_node = nullptr;
 		shader_program = nullptr;
+		ambientStrength = 0.0f;
 	}
 
 	Scene::~Scene()
@@ -26,6 +27,9 @@ namespace engine
 	void Scene::update(float delta_time, const Input& input)
 	{
 		int i = 0;
+		GLuint ambientLightLoc = glGetUniformLocation(getCurrentShaderProgram()->get_programID(), "ambientStrength");
+		glUniform1f(ambientLightLoc, ambientStrength);
+
 		GLuint numberOfLightsLoc = glGetUniformLocation(getCurrentShaderProgram()->get_programID(), "numberOfLights");
 		glUniform1i(numberOfLightsLoc, lights.size());
 		for (auto light : lights) {

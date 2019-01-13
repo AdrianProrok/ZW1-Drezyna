@@ -54,6 +54,7 @@ namespace engine
 		
 		// Œwiat³a
 		std::list<Light*> lights;
+		float ambientStrength;
 
 		glm::mat4 view;
 		glm::mat4 projection;

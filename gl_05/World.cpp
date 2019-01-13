@@ -11,7 +11,7 @@
 
 World::World()
 {
-	
+	ambientStrength = 0.2f;
 }
 
 World::~World()
@@ -65,6 +65,10 @@ void World::render()
 
 void World::update(float delta_time, const Input& input)
 {	
+	if (input.keyboard.keys_pressed[GLFW_KEY_U])
+		ambientStrength -= delta_time * 0.5f;
+	if (input.keyboard.keys_pressed[GLFW_KEY_I])
+		ambientStrength += delta_time * 0.5f;
 	if (input.keyboard.keys_pressed[GLFW_KEY_J])
 		light[0].intensity -= delta_time * 1000000;
 	if (input.keyboard.keys_pressed[GLFW_KEY_K])
@@ -75,6 +79,8 @@ void World::update(float delta_time, const Input& input)
 
 	if (light[0].intensity < 0)
 		light[0].intensity = 0;
+	if (ambientStrength < 0)
+		ambientStrength = 0;
 
 	Scene::update(delta_time, input);
 }

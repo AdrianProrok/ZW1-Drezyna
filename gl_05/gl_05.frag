@@ -11,6 +11,7 @@ uniform sampler2D Texture1;
 
 uniform int numberOfLights;
 uniform bool selfIllumination;
+uniform float ambientStrength;
 
 #define NR_LIGHTS 100
 
@@ -25,7 +26,7 @@ void main()
 		color = vec4(vecColor,1.0);
 	else {
 		// ambient
-		float ambientStrength = 0.2;
+		//float ambientStrength = 0.2;
 		vec3 ambient = ambientStrength * vec3(1,1,1);
 		vec3 result = vec3(0,0,0);
 		for(int i = 0; i < numberOfLights; i++) {  	
