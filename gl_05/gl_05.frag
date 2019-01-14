@@ -6,11 +6,11 @@ in vec3 Normal;
 
 out vec4 color;
 
-uniform sampler2D Texture0;
-uniform sampler2D Texture1;
+uniform sampler2D DiffTexture;
 
 uniform int numberOfLights;
 uniform bool selfIllumination;
+uniform bool isTextured;
 uniform float ambientStrength;
 
 #define NR_LIGHTS 100
@@ -21,7 +21,7 @@ uniform float lightIntens[NR_LIGHTS];
 
 void main()
 {
-	/* color = mix(texture(Texture0, TexCoord), texture(Texture1, TexCoord),0.4) * vecColor; */
+	//color = texture(DiffTexture, TexCoord) * vec4(vecColor,1.0);
 	if( selfIllumination )
 		color = vec4(vecColor,1.0);
 	else {
@@ -37,10 +37,15 @@ void main()
 			vec3 diffuse = diff * lightColor[i];
 
 			diffuse = diffuse * ( lightIntens[i] / (distance(lightPos[i], FragPos)*distance(lightPos[i], FragPos)) );
-			result += diffuse * vecColor;
+			if( isTextured)
+				result += diffuse * vec3(texture(DiffTexture, TexCoord));
+			else
+				result += diffuse * vecColor;
 		}
-
-		result += ambient * vecColor;
+		if( isTextured )
+			result += ambient * vec3(texture(DiffTexture, TexCoord));
+		else
+			result += ambient * vecColor;
 		color = vec4(result, 1.0);
 	}
 }
