@@ -32,15 +32,23 @@ namespace engine
 		// 2. Rysowanie
 		// 3. Rysowanie wszystkich dzieci
 
+		glUniform1i(glGetUniformLocation(scene->getCurrentShaderProgram()->get_programID(), "isTextured"), 0);
+
 		GLuint isSelfIlluminatedLoc = glGetUniformLocation(scene->getCurrentShaderProgram()->get_programID(), "selfIllumination");
 		glUniform1i(isSelfIlluminatedLoc, isSelfIlluminated);
 
 		GLuint transformLoc = glGetUniformLocation(scene->getCurrentShaderProgram()->get_programID(), "transform");
 		glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(trans));
 
-		if (mesh)
+		if (mesh) {
+			if (mesh->material) { // Przenieœæ do mesha?
+				glActiveTexture(GL_TEXTURE0);
+				glBindTexture(GL_TEXTURE_2D, mesh->material->diffuse_texture);
+				glUniform1i(glGetUniformLocation(scene->getCurrentShaderProgram()->get_programID(), "DiffTexture"), 0);
+				glUniform1i(glGetUniformLocation(scene->getCurrentShaderProgram()->get_programID(), "isTextured"), 1);
+			}
 			mesh->render();
-
+		}
 		for (auto& child : children)
 			child->render();
 	}

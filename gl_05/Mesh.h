@@ -40,7 +40,9 @@ namespace engine
 
 		void init();
 		void render();
+		void loadTexture(const char* filepath);
 	protected:
 		void scale(glm::vec3);
+		//bool isTextured;
 	};
 }

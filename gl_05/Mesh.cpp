@@ -5,6 +5,8 @@
 #include <glm/gtc/type_ptr.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
+#include <SOIL.h>
+
 namespace engine
 {
 	Mesh::Mesh()
@@ -14,6 +16,7 @@ namespace engine
 		glGenBuffers(1, &EBO);
 
 		material = nullptr;
+		//isTextured = false;
 	}
 
 	Mesh::~Mesh()
@@ -21,6 +24,9 @@ namespace engine
 		glDeleteVertexArrays(1, &VAO);
 		glDeleteBuffers(1, &VBO);
 		glDeleteBuffers(1, &EBO);
+
+		if (material)
+			delete material;
 	}
 
 	void Mesh::init()
@@ -76,5 +82,22 @@ namespace engine
 			glm::vec4 temp = glm::vec4(vertex.position, 1.0f);
 			vertex.position = glm::vec3(mat_scale * temp);
 		}
+	}
+
+	void Mesh::loadTexture(const char* filepath) {
+		int width, height;
+		unsigned char* image = SOIL_load_image(filepath, &width, &height, 0, SOIL_LOAD_RGB);
+		if (image == nullptr)
+			throw std::exception("Failed to load texture file");
+
+		material = new Material;
+		glGenTextures(1, &material->diffuse_texture);
+
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_2D, material->diffuse_texture);
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
+		glGenerateMipmap(GL_TEXTURE_2D);
+		SOIL_free_image_data(image);
+		glBindTexture(GL_TEXTURE_2D, 0);
 	}
 }

@@ -6,7 +6,8 @@ namespace engine
 {
 	class Material
 	{
-		ShaderProgram shader_prog;
-		// Tekstury?
+	public:
+		//ShaderProgram shader_prog;
+		GLuint diffuse_texture;
 	};
 }
