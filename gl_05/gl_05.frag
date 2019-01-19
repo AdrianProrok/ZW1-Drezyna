@@ -4,6 +4,8 @@ in vec2 TexCoord;
 in vec3 FragPos;
 in vec3 Normal;  
 
+in vec4 PosForFog;
+
 out vec4 color;
 
 uniform sampler2D DiffTexture;
@@ -47,6 +49,14 @@ void main()
 		else
 			result += ambient * vecColor;
 		color = vec4(result, 1.0);
+
+		float fog = (PosForFog.z / 500.0) - 0.1;
+		if( fog > 1.0 )
+			fog = 1.0;
+		if( fog < 0.0 )
+			fog = 0.0;
+
+		color = mix(color, vec4(0.2, 0.35, 0.7, 1.0), fog );
 	}
 }
 

@@ -9,6 +9,8 @@ out vec3 vecColor;
 out vec2 TexCoord;
 out vec3 FragPos;
 out vec3 Normal;
+
+out vec4 PosForFog;
   
 uniform mat4 transform;
 uniform mat4 view;
@@ -21,6 +23,8 @@ void main()
 {
     gl_Position = projection * view * transform * vec4(position, 1.0f);
 	
+	PosForFog = gl_Position;
+
 	FragPos = vec3(transform * vec4(position, 1.0));
 
 	Normal = vec3( transpose(inverse(transform)) * vec4(normal,1.0f) );  
