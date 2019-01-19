@@ -51,10 +51,7 @@ void main()
 		color = vec4(result, 1.0);
 
 		float fog = (PosForFog.z / 500.0) - 0.1;
-		if( fog > 1.0 )
-			fog = 1.0;
-		if( fog < 0.0 )
-			fog = 0.0;
+		fog = clamp(fog, 0.0, 1.0);
 
 		color = mix(color, vec4(0.2, 0.35, 0.7, 1.0), fog );
 	}

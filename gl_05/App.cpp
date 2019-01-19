@@ -142,7 +142,7 @@ bool App::init()
 		//glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 2);
 		//glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
 		//glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
-		//glfwWindowHint(GLFW_SAMPLES, 4);
+		glfwWindowHint(GLFW_SAMPLES, 4);
 
 		window = glfwCreateWindow(settings.width, settings.height, "GKOM - Drezyna", nullptr, nullptr);
 		if (window == nullptr)
