@@ -15,6 +15,7 @@ FenceCover::~FenceCover()
 void FenceCover::generate()
 {
 	mesh = new Cylinder(0.6f, 0.6f, 64, glm::vec3(1.0f, 0.5f, 0.0f), glm::vec3(0.45f, 1.0f, 0.45f), glm::vec2(1.0f,1.0f), glm::vec2(1.0f, 1.0f),  0.1f);
+	mesh->loadTexture("fenceTexture.jpg");
 	mesh->init();
 }
 
