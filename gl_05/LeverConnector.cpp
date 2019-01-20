@@ -22,7 +22,7 @@ void LeverConnector::generate()
 	addChild(&lever);
 	lever.generate();
 	lever.position = glm::vec3(0.0f, 0.2f, -0.15f);
-
+	mesh->loadTexture("leverConnHandleTexture.jpg");
 	mesh->init();
 }
 
