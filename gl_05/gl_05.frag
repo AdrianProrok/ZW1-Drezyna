@@ -54,10 +54,10 @@ void main()
 			result += ambient * vecColor;
 		color = vec4(result, 1.0);
 		
-		float fog = (PosForFog.z / 600.0);
+		float fog = (PosForFog.z-100) / 500.0;
 		fog = clamp(fog, 0.0, 1.0);
 
-		color = mix(color, vec4(1.0, 1.0, 1.0, 1.0), fog );
+		color = mix(color, vec4(0.463, 0.431, 0.451, 1), fog );
 	}
 }
 // vec4(0.2, 0.35, 0.7, 1.0)
