@@ -23,7 +23,7 @@ void WindmillHolder::generate()
 	}
 
 	generateVanes();
-
+	mesh->loadTexture("windmillTexture.jpg");
 	mesh->init();
 
 	this->rotation.z = 90.0f;
