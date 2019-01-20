@@ -41,8 +41,8 @@ void Desert::generate()
 	//this->position.y -= 2.0;
 
 	lights[0].color = { 1.0f, 1.0f, 1.0f };
-	lights[0].intensity = 3000000.0f;
-	lights[0].position = { 1000.0f, 1000.0f, 1000.0f };
+	lights[0].intensity = 10000000.0f;
+	lights[0].position = { -2000.0f, 2000.0f, 250.0f };
 	lights[0].setScene(getScene());
 	lights[0].generate();
 	getScene()->addLight(&lights[0]);

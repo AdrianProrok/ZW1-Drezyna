@@ -167,6 +167,8 @@ bool App::init()
 	glfwSwapInterval(0);
 	glViewport(0, 0, settings.width, settings.height);
 	glEnable(GL_DEPTH_TEST);
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 	scene.init(settings.width/float(settings.height));
 	

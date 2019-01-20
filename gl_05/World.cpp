@@ -43,7 +43,7 @@ void World::init(float aspect_ratio)
 
 	skybox = new SkyBox();
 	skybox->setScene(this);
-	skybox->generate(900.0f, glm::vec3(0.2f, 0.35f, 0.7f));// "skybox.png");
+	skybox->generate(900.0f, glm::vec3(0.2f, 0.35f, 0.7f), "skybox2.png");
 
 	//std::vector<std::string> faces
 	//{
