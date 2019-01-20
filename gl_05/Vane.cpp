@@ -14,7 +14,7 @@ Vane::~Vane()
 
 void Vane::generate()
 {
-	mesh = new Cylinder(0.1f, 1.0f, 3, glm::vec3(0.5f, 0.2f, 0.5f), glm::vec3(0.7f, 1.0f, 0.3f));
+	mesh = new Cylinder(0.1f, 1.0f, 3, glm::vec3(0.5f, 0.2f, 0.5f), glm::vec3(2.0f, 1.0f, 0.3f));
 
 	mesh->init();
 }

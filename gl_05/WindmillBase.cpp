@@ -14,11 +14,11 @@ WindmillBase::~WindmillBase()
 
 void WindmillBase::generate()
 {
-	mesh = new Cylinder(4.0f, 1.0f, 4, glm::vec3(0.7f, 0.2f, 0.345f), glm::vec3(0.52f, 1.0f, 2.0f));
+	mesh = new Cylinder(4.0f, 1.0f, 4, glm::vec3(0.7f, 0.2f, 0.345f), glm::vec3(1.3f, 1.0f, 2.7f));
 
 	addChild(&holder);
 	holder.generate();
-	holder.position = glm::vec3(-0.35f, 3.0f, 0.0f);
+	holder.position = glm::vec3(-0.7f, 2.5f, 0.0f);
 
 	mesh->init();
 }
