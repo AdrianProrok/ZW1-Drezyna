@@ -1,6 +1,6 @@
 #pragma once
 #include "Node.h"
-#include "RightRegularPrism.h"
+#include "Cylinder.h"
 #include "WindmillHolder.h"
 
 class WindmillBase : public engine::Node

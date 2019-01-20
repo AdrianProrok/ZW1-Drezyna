@@ -1,5 +1,5 @@
 #include "Desert.h"
-#include "RightRegularPrism.h"
+#include "Cylinder.h"
 #include "Mesh.h"
 #include "Scene.h"
 
@@ -16,7 +16,7 @@ Desert::~Desert()
 
 void Desert::generate()
 {
-	mesh = new RightRegularPrism(1.0f, 1000.0f, 4, glm::vec3(0.761f, 0.698f, 0.502f)); //glm::vec3(1.0f, 1.0f, 0.2f));
+	mesh = new Cylinder(1.0f, 1000.0f, 4, glm::vec3(0.761f, 0.698f, 0.502f)); //glm::vec3(1.0f, 1.0f, 0.2f));
 
 	addChild(&draisine);
 	draisine.generate();

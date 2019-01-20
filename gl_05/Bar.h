@@ -2,7 +2,7 @@
 
 #include "Node.h"
 #include "Support.h"
-#include "RightRegularPrism.h"
+#include "Cylinder.h"
 
 class Bar : public engine::Node
 {

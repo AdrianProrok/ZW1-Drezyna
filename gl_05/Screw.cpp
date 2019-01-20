@@ -14,7 +14,7 @@ Screw::~Screw()
 
 void Screw::generate()
 {
-	mesh = new RightRegularPrism(0.175f, 0.1f, 8, glm::vec3(0.0f, 1.0f, 0.0f));
+	mesh = new Cylinder(0.175f, 0.1f, 8, glm::vec3(0.0f, 1.0f, 0.0f));
 	mesh->init();
 }
 

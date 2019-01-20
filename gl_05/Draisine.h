@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Node.h"
-#include "RightRegularPrism.h"
+#include "Cylinder.h"
 #include "Wheel.h"
 #include "Bar.h"
 #include "LeverBase.h"

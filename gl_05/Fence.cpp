@@ -14,7 +14,7 @@ Fence::~Fence()
 
 void Fence::generate()
 {
-	mesh = new RightRegularPrism(2.0f, 0.5f , 64, glm::vec3(1.0f, 0.5f, 0.0f), glm::vec3(0.45f, 1.0f, 0.45f));
+	mesh = new Cylinder(2.0f, 0.5f , 64, glm::vec3(1.0f, 0.5f, 0.0f), glm::vec3(0.45f, 1.0f, 0.45f));
 	mesh->init();
 }
 
