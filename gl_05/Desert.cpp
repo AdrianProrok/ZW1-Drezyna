@@ -22,20 +22,24 @@ void Desert::generate()
 	draisine.generate();
 	draisine.position = glm::vec3(0.0f, 1.5f + 1.0f, 0.0f);
 	
-	for (int i = 0; i < 100; ++i)
+	planks[0].generate();
+	addChild(&planks[0]);
+	planks[0].position = glm::vec3(200.0f, 1.0f, 0.0f);
+	for (int i = 1; i < 100; ++i)
 	{
 		addChild(&planks[i]);
-		planks[i].generate();
+		planks[i].setMesh(planks[0].getMesh());
 		planks[i].position = glm::vec3(200.0f - (float)4*i, 1.0f, 0.0f);
 	}
 
-	for (int i = 0; i < 2; ++i)
-	{
-		addChild(&rails[i]);
-		rails[i].generate();
-		rails[i].position = glm::vec3(0.0f, 0.14f + 1.0f, 4.0f - 8.0f*i);
-	}
-
+	addChild(&rails[0]);
+	addChild(&rails[1]);
+	rails[0].generate();
+	rails[1].setMesh(rails[0].getMesh());
+	rails[0].position = glm::vec3(0.0f, 0.14f + 1.0f, 4.0f);
+	rails[1].position = glm::vec3(0.0f, 0.14f + 1.0f, -4.0f);
+	
+	mesh->loadTexture("desertTexture.jpg");
 	mesh->init();
 
 	//this->position.y -= 2.0;

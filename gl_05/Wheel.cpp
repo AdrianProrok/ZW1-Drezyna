@@ -20,17 +20,16 @@ void Wheel::generate()
 	mesh = new Cylinder(0.7f, 1.35f, 64, glm::vec3(1.0f, 0.0f, 0.0f));
 
 	for (WheelSide& wheelSide : sides)
-	{
 		addChild(&wheelSide);
-		wheelSide.generate();
-	}
 
+	sides[0].generate();
+	sides[1].setMesh(sides[0].getMesh());
 	sides[0].position = glm::vec3(0.0f, -0.112f, 0.0f);
 	sides[1].position = glm::vec3(0.0f, 0.7f, 0.0f);
 
 	generateScrews(5);
 
-	//mesh->loadTexture("wheelsTexture.jpg");
+	mesh->loadTexture("wheelsTexture.jpg");
 	mesh->init();
 }
 
@@ -64,9 +63,11 @@ void Wheel::generateScrews(int numberOfScrews)
 		}
 	}
 
-	for (int i = 0; i < numberOfScrews; ++i)
+	addChild(&screws[0]);
+	screws[0].generate();
+	for (int i = 1; i < numberOfScrews; ++i)
 	{
 		addChild(&screws[i]);
-		screws[i].generate();
+		screws[i].setMesh(screws[0].getMesh());
 	}
 }
