@@ -10,43 +10,62 @@ namespace engine
 		root_node = nullptr;
 		shader_program = nullptr;
 		ambientStrength = 0.0f;
+
+		skybox = nullptr;
+		skybox_shader = nullptr;
 	}
 
 	Scene::~Scene()
 	{
+		if (skybox_shader)
+			delete skybox_shader;
 		if(shader_program)
 			delete shader_program;
 	}
 
 	void Scene::render()
 	{
+		if (skybox) {
+			glDepthFunc(GL_FALSE);
+			updateShader(getCurrentShaderProgram());
+			//skybox_shader->Use();
+			GLuint viewLoc = glGetUniformLocation(getCurrentShaderProgram()->get_programID(), "view");
+			glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr( glm::mat4(glm::mat3(camera.getView())) ) );
+			skybox->render();
+			//getCurrentShaderProgram()->Use();
+			glDepthFunc(GL_TRUE);
+		}
+
+		updateShader(getCurrentShaderProgram());
+		if (root_node)
+			root_node->render();
+	}
+
+	void Scene::updateShader(ShaderProgram* shader) {
 		// Kamera
-		GLuint viewLoc = glGetUniformLocation(getCurrentShaderProgram()->get_programID(), "view");
+		GLuint viewLoc = glGetUniformLocation(shader->get_programID(), "view");
 		glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(camera.getView()));
-		GLuint projLoc = glGetUniformLocation(getCurrentShaderProgram()->get_programID(), "projection");
+		GLuint projLoc = glGetUniformLocation(shader->get_programID(), "projection");
 		glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(camera.getProjection()));
 
 		// Œwiat³a
 		int i = 0;
-		GLuint ambientLightLoc = glGetUniformLocation(getCurrentShaderProgram()->get_programID(), "ambientStrength");
+		GLuint ambientLightLoc = glGetUniformLocation(shader->get_programID(), "ambientStrength");
 		glUniform1f(ambientLightLoc, ambientStrength);
 
-		GLuint numberOfLightsLoc = glGetUniformLocation(getCurrentShaderProgram()->get_programID(), "numberOfLights");
+		GLuint numberOfLightsLoc = glGetUniformLocation(shader->get_programID(), "numberOfLights");
 		glUniform1i(numberOfLightsLoc, lights.size());
 		for (auto light : lights) {
-			GLuint lightPosLoc = glGetUniformLocation(getCurrentShaderProgram()->get_programID(), ("lightPos[" + std::to_string(i) + "]").c_str());
+			GLuint lightPosLoc = glGetUniformLocation(shader->get_programID(), ("lightPos[" + std::to_string(i) + "]").c_str());
 			glUniform3fv(lightPosLoc, 1, glm::value_ptr(light->lightPos));
 
-			GLuint lightColorLoc = glGetUniformLocation(getCurrentShaderProgram()->get_programID(), ("lightColor[" + std::to_string(i) + "]").c_str());
+			GLuint lightColorLoc = glGetUniformLocation(shader->get_programID(), ("lightColor[" + std::to_string(i) + "]").c_str());
 			glUniform3fv(lightColorLoc, 1, glm::value_ptr(light->color));
 
-			GLuint lightIntensLoc = glGetUniformLocation(getCurrentShaderProgram()->get_programID(), ("lightIntens[" + std::to_string(i) + "]").c_str());
+			GLuint lightIntensLoc = glGetUniformLocation(shader->get_programID(), ("lightIntens[" + std::to_string(i) + "]").c_str());
 			glUniform1f(lightIntensLoc, light->intensity);
 			++i;
 		}
-
-		if (root_node)
-			root_node->render();
 	}
 
 	void Scene::update(float delta_time, const Input& input)

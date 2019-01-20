@@ -83,6 +83,17 @@ namespace engine
 			vertex.position = glm::vec3(mat_scale * temp);
 		}
 	}
+	void Mesh::translate(glm::vec3 trans)
+	{
+		glm::mat4 mat_trans = glm::mat4(1.0f);
+		mat_trans = glm::translate(mat_trans, trans);
+
+		for (Vertex& vertex : vertices)
+		{
+			glm::vec4 temp = glm::vec4(vertex.position, 1.0f);
+			vertex.position = glm::vec3(mat_trans * temp);
+		}
+	}
 
 	void Mesh::loadTexture(const char* filepath) {
 		int width, height;
