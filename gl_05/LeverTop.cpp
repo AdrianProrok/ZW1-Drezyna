@@ -25,6 +25,7 @@ void LeverTop::generate()
 	}
 	handles[0].position = glm::vec3( 3.3f, 0.0f, 0.0f);
 	handles[1].position = glm::vec3(-3.3f, 0.0f, 0.0f);
+	mesh->loadTexture("leverBaseTopTexture.jpg");
 	mesh->init();
 }
 
