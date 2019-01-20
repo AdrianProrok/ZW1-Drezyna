@@ -14,7 +14,7 @@ Draisine::~Draisine()
 
 void Draisine::generate()
 {
-	mesh = new RightRegularPrism(1.0f, 5.0f, 4, glm::vec3(0.274f, 0.509f, 0.705f), glm::vec3(2.0f, 1.0f, 1.0f));
+	mesh = new Cylinder(1.0f, 5.0f, 4, glm::vec3(0.274f, 0.509f, 0.705f), glm::vec3(2.0f, 1.0f, 1.0f));
 	//Wheels
 	for (Wheel& wheel : wheels)
 	{

@@ -1,6 +1,6 @@
 #pragma once
 #include "Node.h"
-#include "RightRegularPrism.h"
+#include "Cylinder.h"
 #include "Light.h"
 
 class LeverHandle : public engine::Node

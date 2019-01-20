@@ -4,11 +4,11 @@
 
 namespace engine
 {
-	class RightRegularPrism : public Mesh
+	class Cylinder : public Mesh
 	{
 	public:
-		RightRegularPrism(float, float, GLuint, glm::vec3, glm::vec3 = glm::vec3(1.0f, 1.0f, 1.0f), float = -1.0f);
-		~RightRegularPrism();
+		Cylinder(float, float, GLuint, glm::vec3, glm::vec3 = glm::vec3(1.0f, 1.0f, 1.0f), float = -1.0f);
+		~Cylinder();
 	private:
 		void generateBase(float, float, GLuint, glm::vec3);
 		void calculateNormals(int verts);

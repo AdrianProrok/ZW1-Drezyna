@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Node.h"
-#include "RightRegularPrism.h"
+#include "Cylinder.h"
 
 class Rail : public engine::Node
 {

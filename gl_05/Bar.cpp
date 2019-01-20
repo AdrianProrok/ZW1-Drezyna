@@ -14,7 +14,7 @@ Bar::~Bar()
 
 void Bar::generate()
 {
-	mesh = new RightRegularPrism(0.15f, 1.0f, 4, glm::vec3(0.0f, 0.0f, 1.0f), glm::vec3(6.675f, 1.0f, 0.325f));
+	mesh = new Cylinder(0.15f, 1.0f, 4, glm::vec3(0.0f, 0.0f, 1.0f), glm::vec3(6.675f, 1.0f, 0.325f));
 
 	for (Support& support: supports)
 	{

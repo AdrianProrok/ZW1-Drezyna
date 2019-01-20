@@ -15,7 +15,7 @@ WheelSide::~WheelSide()
 
 void WheelSide::generate()
 {
-	mesh = new RightRegularPrism(0.112f, 1.475f, 64, glm::vec3(0.98f, 0.52f, 0.35f));
+	mesh = new Cylinder(0.112f, 1.475f, 64, glm::vec3(0.98f, 0.52f, 0.35f));
 	mesh->init();
 }
 
