@@ -25,5 +25,7 @@ void WindmillBase::generate()
 
 void WindmillBase::update(float delta_time, glm::mat4 trans)
 {
+	holder.rotation.x += 45.0f*delta_time;
+	if (holder.rotation.x >= 360.0f) holder.rotation.x -= 360.0f;
 	Node::update(delta_time, trans);
 }
