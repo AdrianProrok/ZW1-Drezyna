@@ -91,7 +91,7 @@ void Draisine::generate()
 
 	addChild(&millBase);
 	millBase.generate();
-	millBase.position = glm::vec3(-6.7f, 0.0f, 0.0f);
+	millBase.position = glm::vec3(-6.13f, 0.3f, 0.0f);
 
 	mesh->init();
 	//mesh->loadTexture("checkerboard.png");
