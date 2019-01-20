@@ -7,7 +7,7 @@
 
 namespace engine
 {
-	Cylinder::Cylinder(float height, float radius, GLuint verts, glm::vec3 color, glm::vec3 scale, float secondRadius)
+	Cylinder::Cylinder(float height, float radius, GLuint verts, glm::vec3 color, glm::vec3 scale, glm::vec2 baseTextureScale, glm::vec2 sideTextureScale, float secondRadius)
 	{
 		if (secondRadius == -1.0f) {
 			secondRadius = radius;
@@ -36,6 +36,8 @@ namespace engine
 		faces.push_back({ 3 * verts + 1, 3 * verts + 2, 4 * verts + 3 });
 
 		this->scale(scale);
+		this->scaleBaseTexture(baseTextureScale, verts);
+		this->scaleSideTexture(sideTextureScale, verts);
 		calculateNormals(verts);
 	}
 
@@ -113,6 +115,18 @@ namespace engine
 
 		for (Vertex& vertex : vertices)
 			vertex.normal = normalize(vertex.normal);
+	}
+
+	void Cylinder::scaleBaseTexture(glm::vec2 scale, GLuint verts)
+	{
+		for (GLuint i = 0; i < 2*verts + 2; ++i)
+			vertices[i].texture_coords = { vertices[i].texture_coords.x *scale.x, vertices[i].texture_coords.y *scale.y };
+	}
+
+	void Cylinder::scaleSideTexture(glm::vec2 scale, GLuint verts)
+	{
+		for (GLuint i = 2 * verts + 2; i <4*verts +4 ; ++i)
+			vertices[i].texture_coords = { vertices[i].texture_coords.x *scale.x, vertices[i].texture_coords.y *scale.y };
 	}
 
 	Cylinder::~Cylinder()
