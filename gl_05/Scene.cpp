@@ -20,16 +20,13 @@ namespace engine
 
 	void Scene::render()
 	{
-		if (root_node)
-			root_node->render();
-	}
+		// Kamera
+		GLuint viewLoc = glGetUniformLocation(getCurrentShaderProgram()->get_programID(), "view");
+		glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(camera.getView()));
+		GLuint projLoc = glGetUniformLocation(getCurrentShaderProgram()->get_programID(), "projection");
+		glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(camera.getProjection()));
 
-	void Scene::update(float delta_time, const Input& input)
-	{
-		updateCamera(delta_time, input);
-		if (root_node)
-			root_node->update(delta_time, glm::mat4());
-
+		// Œwiat³a
 		int i = 0;
 		GLuint ambientLightLoc = glGetUniformLocation(getCurrentShaderProgram()->get_programID(), "ambientStrength");
 		glUniform1f(ambientLightLoc, ambientStrength);
@@ -47,6 +44,16 @@ namespace engine
 			glUniform1f(lightIntensLoc, light->intensity);
 			++i;
 		}
+
+		if (root_node)
+			root_node->render();
+	}
+
+	void Scene::update(float delta_time, const Input& input)
+	{
+		updateCamera(delta_time, input);
+		if (root_node)
+			root_node->update(delta_time, glm::mat4());
 	}
 
 	void Scene::setRootNode(Node* node)

@@ -17,6 +17,9 @@ namespace engine
 		void setScene(Scene* scene);
 		Scene* getScene();
 
+		glm::mat4 getView() const;
+		glm::mat4 getProjection() const;
+
 		// Przesuniêcie i obrót o dok³adn¹ wartoœæ
 		void update(glm::vec3 d_position, glm::vec3 d_rotation);
 

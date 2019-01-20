@@ -57,8 +57,8 @@ namespace engine
 		std::vector<Light*> lights;
 		float ambientStrength;
 
-		glm::mat4 view;
-		glm::mat4 projection;
+		//glm::mat4 view;
+		//glm::mat4 projection;
 
 		// £atwiej chyba trzymaæ mesh i material w Node
 		//std::vector<Material> materials;
