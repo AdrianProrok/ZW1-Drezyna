@@ -12,7 +12,7 @@ namespace engine
 {
 	Camera::Camera()
 	{
-		speed = 7.0f;
+		speed = 14.0f;
 	}
 
 	Camera::~Camera()
@@ -27,6 +27,15 @@ namespace engine
 	Scene* Camera::getScene()
 	{
 		return scene;
+	}
+
+	glm::mat4 Camera::getView() const
+	{
+		return glm::mat4(view);
+	}
+	glm::mat4 Camera::getProjection() const
+	{
+		return glm::mat4(projection);
 	}
 
 	void Camera::update(glm::vec3 d_position, glm::vec3 d_rotation)
@@ -59,9 +68,6 @@ namespace engine
 		new_view = glm::mat4(1.0f);
 		new_view = glm::translate(new_view, d_position);
 		view = new_view * view;
-
-		GLuint viewLoc = glGetUniformLocation(scene->getCurrentShaderProgram()->get_programID(), "view");
-		glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(view));
 	}
 
 	void Camera::set(glm::vec3 position, glm::vec3 rotation)
@@ -79,9 +85,6 @@ namespace engine
 	void Camera::setProj(float aspect_ratio, float view_angle)
 	{
 		projection = glm::perspective(glm::radians(view_angle), aspect_ratio, 0.1f, 1000.0f);
-
-		GLuint projLoc = glGetUniformLocation(scene->getCurrentShaderProgram()->get_programID(), "projection");
-		glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(projection));
 
 		this->aspect_ratio = aspect_ratio;
 		this->view_angle = view_angle;
