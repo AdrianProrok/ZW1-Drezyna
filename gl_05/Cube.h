@@ -1,11 +1,11 @@
 #pragma once
 
 #include "Mesh.h"
-#include "RightRegularPrism.h"
+#include "Cylinder.h"
 
 namespace engine 
 {
-	class Cube : public RightRegularPrism
+	class Cube : public Cylinder
 	{
 	public:
 		Cube(float size, glm::vec3 color);

@@ -123,13 +123,13 @@
     <ClCompile Include="Light.cpp">
       <Filter>Engine\Basic\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Cylinder.cpp">
+      <Filter>Engine\SimpleGeometry\Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="Skybox.cpp">
       <Filter>Engine\Basic\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Cube.cpp">
-      <Filter>Engine\SimpleGeometry\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Cylinder.cpp">
       <Filter>Engine\SimpleGeometry\Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -237,12 +237,6 @@
     </ClInclude>
     <ClInclude Include="Vane.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Cube.h">
-      <Filter>Engine\SimpleGeometry\Header FIles</Filter>
-    </ClInclude>
-    <ClInclude Include="Cylinder.h">
-      <Filter>Engine\SimpleGeometry\Header FIles</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
