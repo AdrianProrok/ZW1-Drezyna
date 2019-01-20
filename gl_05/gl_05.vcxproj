@@ -93,6 +93,7 @@
     <ClCompile Include="App.cpp" />
     <ClCompile Include="Bar.cpp" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="Cube.cpp" />
     <ClCompile Include="Desert.cpp" />
     <ClCompile Include="Draisine.cpp" />
     <ClCompile Include="Fence.cpp" />
@@ -113,6 +114,7 @@
     <ClCompile Include="Screw.cpp" />
     <ClCompile Include="ShaderProgram.cpp" />
     <ClCompile Include="ShortConnector.cpp" />
+    <ClCompile Include="Skybox.cpp" />
     <ClCompile Include="Support.cpp" />
     <ClCompile Include="Vane.cpp" />
     <ClCompile Include="Wheel.cpp" />
@@ -124,6 +126,8 @@
   <ItemGroup>
     <None Include="gl_05.frag" />
     <None Include="gl_05.vert" />
+    <None Include="skybox.frag" />
+    <None Include="skybox.vert" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="iipw.png" />
@@ -133,6 +137,7 @@
     <ClInclude Include="App.h" />
     <ClInclude Include="Bar.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="Cube.h" />
     <ClInclude Include="Desert.h" />
     <ClInclude Include="Draisine.h" />
     <ClInclude Include="Fence.h" />

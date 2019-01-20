@@ -126,10 +126,18 @@
     <ClCompile Include="Cylinder.cpp">
       <Filter>Engine\SimpleGeometry\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Skybox.cpp">
+      <Filter>Engine\Basic\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Cube.cpp">
+      <Filter>Engine\SimpleGeometry\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="gl_05.frag" />
     <None Include="gl_05.vert" />
+    <None Include="skybox.frag" />
+    <None Include="skybox.vert" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="iipw.png">
@@ -229,9 +237,6 @@
     </ClInclude>
     <ClInclude Include="Vane.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Cylinder.h">
-      <Filter>Engine\SimpleGeometry\Header FIles</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

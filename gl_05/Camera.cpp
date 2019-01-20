@@ -12,7 +12,7 @@ namespace engine
 {
 	Camera::Camera()
 	{
-		speed = 14.0f;
+		speed = 28.0f;
 	}
 
 	Camera::~Camera()

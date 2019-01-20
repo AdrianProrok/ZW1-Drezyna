@@ -4,6 +4,7 @@
 #include "Camera.h"
 #include "Light.h"
 #include "ShaderProgram.h"
+#include "Skybox.h"
 
 #include <list>
 
@@ -45,7 +46,12 @@ namespace engine
 
 		void updateCamera(float delta_time, const Input& input);
 
+		void updateShader(ShaderProgram* shader);
+
 		ShaderProgram* shader_program;
+		ShaderProgram* skybox_shader;
+
+		SkyBox* skybox;
 
 		// Obiekt podstawowy sceny, reszta obiektów jest ustawiona relatywnie od niego
 		Node* root_node;

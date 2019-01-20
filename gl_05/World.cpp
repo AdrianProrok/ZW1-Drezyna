@@ -22,6 +22,7 @@ void World::init(float aspect_ratio)
 {
 	// Najpierw shader, bo potem ró¿ne rzeczy s¹ do niego ³adowane
 	setCurrentShaderProgram(new engine::ShaderProgram("gl_05.vert", "gl_05.frag"));
+	//skybox_shader = new engine::ShaderProgram("skybox.vert", "skybox.frag");
 	shader_program->Use();
 
 	// Potem RootNode
@@ -39,6 +40,22 @@ void World::init(float aspect_ratio)
 	lights.push_back(&light[3]);*/
 	
 	Scene::init(aspect_ratio);
+
+	skybox = new SkyBox();
+	skybox->setScene(this);
+	skybox->generate(900.0f, glm::vec3(0.2f, 0.35f, 0.7f));// "skybox.png");
+
+	//std::vector<std::string> faces
+	//{
+	//	"test.png",
+	//	"test.png",
+	//	"test.png",
+	//	"test.png",
+	//	"test.png",
+	//	"test.png"
+	//};
+	////skybox->init();
+	//skybox->loadTexture(faces);
 }
 
 void World::render()
