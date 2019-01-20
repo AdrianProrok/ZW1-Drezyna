@@ -30,6 +30,7 @@ void Wheel::generate()
 
 	generateScrews(5);
 
+	mesh->loadTexture("wheelsTexture.jpg");
 	mesh->init();
 }
 
