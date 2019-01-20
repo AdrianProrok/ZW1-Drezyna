@@ -26,14 +26,14 @@ namespace engine
 	void Scene::render()
 	{
 		if (skybox) {
-			glDepthFunc(GL_FALSE);
+			//glDepthFunc(GL_FALSE);
 			updateShader(getCurrentShaderProgram());
 			//skybox_shader->Use();
 			GLuint viewLoc = glGetUniformLocation(getCurrentShaderProgram()->get_programID(), "view");
 			glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr( glm::mat4(glm::mat3(camera.getView())) ) );
 			skybox->render();
 			//getCurrentShaderProgram()->Use();
-			glDepthFunc(GL_TRUE);
+			//glDepthFunc(GL_TRUE);
 		}
 
 		updateShader(getCurrentShaderProgram());
