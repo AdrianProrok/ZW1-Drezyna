@@ -44,7 +44,7 @@ namespace engine
 		void translate(glm::vec3);
 	protected:
 		void scale(glm::vec3);
-		
+		void scaleTexture(glm::vec2);
 		//bool isTextured;
 	};
 }

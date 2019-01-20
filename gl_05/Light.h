@@ -1,6 +1,6 @@
 #pragma once
 
-#include "RightRegularPrism.h"
+#include "Cylinder.h"
 #include "Node.h"
 
 namespace engine

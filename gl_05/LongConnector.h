@@ -1,6 +1,6 @@
 #pragma once
 #include "Node.h"
-#include "RightRegularPrism.h"
+#include "Cylinder.h"
 
 class LongConnector : public engine::Node
 {

@@ -109,7 +109,7 @@
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="Plank.cpp" />
     <ClCompile Include="Rail.cpp" />
-    <ClCompile Include="RightRegularPrism.cpp" />
+    <ClCompile Include="Cylinder.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Screw.cpp" />
     <ClCompile Include="ShaderProgram.cpp" />
@@ -153,7 +153,7 @@
     <ClInclude Include="Node.h" />
     <ClInclude Include="Plank.h" />
     <ClInclude Include="Rail.h" />
-    <ClInclude Include="RightRegularPrism.h" />
+    <ClInclude Include="Cylinder.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Screw.h" />
     <ClInclude Include="ShaderProgram.h" />

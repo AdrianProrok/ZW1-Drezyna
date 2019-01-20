@@ -14,7 +14,7 @@ Bar::~Bar()
 
 void Bar::generate()
 {
-	mesh = new RightRegularPrism(0.15f, 1.0f, 4, glm::vec3(0.0f, 0.0f, 1.0f), glm::vec3(6.675f, 1.0f, 0.325f));
+	mesh = new Cylinder(0.15f, 1.0f, 4, glm::vec3(0.0f, 0.0f, 1.0f), glm::vec3(6.675f, 1.0f, 0.325f), glm::vec2(10.0f, 1.0f));
 
 	for (Support& support: supports)
 	{
@@ -25,7 +25,7 @@ void Bar::generate()
 	supports[0].position = glm::vec3(4.5f, 0.15f, 0.0f);
 	supports[1].position = glm::vec3(-4.5f, 0.15f, 0.0f);
 
-
+	mesh->loadTexture("barTexture.jpg");
 	mesh->init();
 }
 

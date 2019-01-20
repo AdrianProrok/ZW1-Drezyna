@@ -17,7 +17,7 @@ Wheel::~Wheel()
 
 void Wheel::generate()
 {
-	mesh = new RightRegularPrism(0.7f, 1.35f, 64, glm::vec3(1.0f, 0.0f, 0.0f));
+	mesh = new Cylinder(0.7f, 1.35f, 64, glm::vec3(1.0f, 0.0f, 0.0f));
 
 	for (WheelSide& wheelSide : sides)
 	{
@@ -30,6 +30,7 @@ void Wheel::generate()
 
 	generateScrews(5);
 
+	mesh->loadTexture("wheelsTexture.jpg");
 	mesh->init();
 }
 

@@ -63,9 +63,6 @@
     <ClCompile Include="Camera.cpp">
       <Filter>Engine\Basic\Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="RightRegularPrism.cpp">
-      <Filter>Engine\SimpleGeometry\Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Desert.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -132,6 +129,9 @@
     <ClCompile Include="Cube.cpp">
       <Filter>Engine\SimpleGeometry\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Cylinder.cpp">
+      <Filter>Engine\SimpleGeometry\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="gl_05.frag" />
@@ -180,9 +180,6 @@
     </ClInclude>
     <ClInclude Include="Camera.h">
       <Filter>Engine\Basic\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="RightRegularPrism.h">
-      <Filter>Engine\SimpleGeometry\Header FIles</Filter>
     </ClInclude>
     <ClInclude Include="Desert.h">
       <Filter>Header Files</Filter>
@@ -242,6 +239,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Cube.h">
+      <Filter>Engine\SimpleGeometry\Header FIles</Filter>
+    </ClInclude>
+    <ClInclude Include="Cylinder.h">
       <Filter>Engine\SimpleGeometry\Header FIles</Filter>
     </ClInclude>
   </ItemGroup>

@@ -14,7 +14,8 @@ Support::~Support()
 
 void Support::generate()
 {
-	mesh = new RightRegularPrism(0.227f, 0.227f, 64, glm::vec3(0.0f, 1.0f, 1.0f));
+	mesh = new Cylinder(0.227f, 0.227f, 64, glm::vec3(0.0f, 1.0f, 1.0f));
+	mesh->loadTexture("barTexture.jpg");
 	mesh->init();
 }
 

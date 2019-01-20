@@ -95,6 +95,13 @@ namespace engine
 		}
 	}
 
+	void Mesh::scaleTexture(glm::vec2 scale)
+	{
+		for (Vertex& vertex : vertices)
+			vertex.texture_coords = {vertex.texture_coords.x *scale.x, vertex.texture_coords.y *scale.y };
+		
+	}
+
 	void Mesh::loadTexture(const char* filepath) {
 		int width, height;
 		unsigned char* image = SOIL_load_image(filepath, &width, &height, 0, SOIL_LOAD_RGB);
