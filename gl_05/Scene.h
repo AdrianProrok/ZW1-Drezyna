@@ -7,6 +7,7 @@
 #include "Skybox.h"
 
 #include <list>
+#include <set>
 
 //#include "Mesh.h"
 //#include "Material.h"
@@ -39,6 +40,8 @@ namespace engine
 
 		//void addLight(glm::vec3 position, glm::vec3 color, float intensity);
 		void addLight(Light* light);
+
+		void addMesh(Mesh* mesh);
 	protected:
 
 		void setRootNode(Node* node);
@@ -68,6 +71,6 @@ namespace engine
 
 		// £atwiej chyba trzymaæ mesh i material w Node
 		//std::vector<Material> materials;
-		//std::vector<Mesh> meshes;
+		std::set<Mesh*> meshes;
 	};
 }

@@ -2,6 +2,7 @@
 #include "App.h"
 #include <glm/vec3.hpp>
 #include <string>
+#include <iostream>
 
 namespace engine
 {
@@ -21,6 +22,11 @@ namespace engine
 			delete skybox_shader;
 		if(shader_program)
 			delete shader_program;
+
+		for (auto mesh : meshes) {
+			delete mesh;
+		}
+		meshes.clear();
 	}
 
 	void Scene::render()
@@ -107,6 +113,11 @@ namespace engine
 	void Scene::addLight(Light * light)
 	{
 		lights.push_back(light);
+	}
+
+	void Scene::addMesh(Mesh* mesh)
+	{
+		meshes.insert(mesh);
 	}
 
 	void Scene::updateCamera(float delta_time, const Input& input)

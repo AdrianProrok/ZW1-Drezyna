@@ -14,7 +14,7 @@ Rail::~Rail()
 
 void Rail::generate()
 {
-	mesh = new Cylinder(0.5f, 0.5f, 4, glm::vec3(0.6901f, 0.7686f, 0.8705f), glm::vec3(1000.0f, 1.0f, 1.0f));
+	setMesh(new Cylinder(0.5f, 0.5f, 4, glm::vec3(0.6901f, 0.7686f, 0.8705f), glm::vec3(1000.0f, 1.0f, 1.0f)));
 	mesh->loadTexture("railTexture.jpg");
 	mesh->init();
 }
