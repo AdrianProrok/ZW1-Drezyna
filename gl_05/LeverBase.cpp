@@ -19,7 +19,7 @@ void LeverBase::generate()
 	addChild(&leverCon);
 	leverCon.generate();
 	leverCon.position = glm::vec3(0.0f, 5.15f, -0.2f);
-	mesh->loadTexture("leverBaseTopTexture.jpg");
+	//mesh->loadTexture("leverBaseTopTexture.jpg");
 	mesh->init();
 }
 

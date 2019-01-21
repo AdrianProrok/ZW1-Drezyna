@@ -42,7 +42,7 @@ void WindmillHolder::generateVanes()
 	glm::mat4 rotation(1.0f);
 	rotation = glm::rotate(rotation, glm::radians(360.0f / 5.0f), glm::vec3(0, 1, 0));
 
-	vanes[0].position = glm::vec3(0.72f, 0.6f, -0.06f);
+	vanes[0].position = glm::vec3(0.925f, 0.6f, -0.06f);
 	glm::vec4 temp = glm::vec4(vanes[0].position, 1.0f);
 
 	for (int i=1; i<5; i++)

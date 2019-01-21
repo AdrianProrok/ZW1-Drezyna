@@ -50,7 +50,7 @@ void Desert::generate()
 	rails[0].position = glm::vec3(0.0f, 0.14f + 1.0f, 4.0f);
 	rails[1].position = glm::vec3(0.0f, 0.14f + 1.0f, -4.0f);
 	
-	mesh->loadTexture("desertTexture.png");
+	//mesh->loadTexture("desertTexture.png");
 	mesh->init();
 
 	addChild(&lamps[0]);
