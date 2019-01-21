@@ -48,6 +48,7 @@ void Draisine::generate()
 	addChild(&base);
 	base.generate();
 	base.position = glm::vec3(0.0f, 1.0f, 0.0f);
+
 	//Fence
 	for (Fence& fence : fences)
 	{
@@ -93,6 +94,7 @@ void Draisine::generate()
 	millBase.generate();
 	millBase.position = glm::vec3(-6.13f, 0.3f, 0.0f);
 
+	mesh->loadTexture("platformTexture.jpg");
 	mesh->init();
 	//mesh->loadTexture("checkerboard.png");
 }
