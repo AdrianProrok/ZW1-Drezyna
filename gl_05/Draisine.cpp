@@ -14,7 +14,7 @@ Draisine::~Draisine()
 
 void Draisine::generate()
 {
-	mesh = new Cylinder(1.0f, 5.0f, 4, glm::vec3(0.274f, 0.509f, 0.705f), glm::vec3(2.0f, 1.0f, 1.0f), glm::vec2(1.0f, 1.0f), glm::vec2(4.0f, 0.5f));
+	mesh = new Cylinder(1.0f, 5.0f, 4, glm::vec3(0.274f, 0.509f, 0.705f), glm::vec3(2.0f, 1.0f, 1.0f), glm::vec2(4.0f, 2.0f), glm::vec2(4.0f, 0.5f));
 	//Wheels
 	for (Wheel& wheel : wheels)
 	{
@@ -48,6 +48,7 @@ void Draisine::generate()
 	addChild(&base);
 	base.generate();
 	base.position = glm::vec3(0.0f, 1.0f, 0.0f);
+
 	//Fence
 	for (Fence& fence : fences)
 	{
@@ -93,6 +94,7 @@ void Draisine::generate()
 	millBase.generate();
 	millBase.position = glm::vec3(-6.13f, 0.3f, 0.0f);
 
+	mesh->loadTexture("platformTexture.jpg");
 	mesh->init();
 	//mesh->loadTexture("checkerboard.png");
 }
