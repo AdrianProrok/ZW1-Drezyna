@@ -18,6 +18,7 @@ namespace engine
 		scale = glm::vec3(1.0f, 1.0f, 1.0f);
 
 		isSelfIlluminated = false;
+		selfIlluminationIntens = 1.0f;
 	}
 
 	Node::~Node()
@@ -36,6 +37,9 @@ namespace engine
 
 		GLuint isSelfIlluminatedLoc = glGetUniformLocation(scene->getCurrentShaderProgram()->get_programID(), "selfIllumination");
 		glUniform1i(isSelfIlluminatedLoc, isSelfIlluminated);
+
+		GLuint selfIlluminationIntensLoc = glGetUniformLocation(scene->getCurrentShaderProgram()->get_programID(), "selfIlluminationIntens");
+		glUniform1f(selfIlluminationIntensLoc, selfIlluminationIntens);
 
 		GLuint transformLoc = glGetUniformLocation(scene->getCurrentShaderProgram()->get_programID(), "transform");
 		glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(trans));
@@ -110,5 +114,11 @@ namespace engine
 
 	void Node::setSelfIllumination(bool isSelfIlluminated) {
 		this->isSelfIlluminated = isSelfIlluminated;
+	}
+	void Node::setSelfIlluminationIntens(float intens) {
+		selfIlluminationIntens = intens;
+	}
+	float Node::getSelfIlluminationIntens() {
+		return selfIlluminationIntens;
 	}
 }

@@ -132,6 +132,9 @@
     <ClCompile Include="Cube.cpp">
       <Filter>Engine\SimpleGeometry\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Lamp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="gl_05.frag" />
@@ -237,6 +240,15 @@
     </ClInclude>
     <ClInclude Include="Vane.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Lamp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Cylinder.h">
+      <Filter>Engine\SimpleGeometry\Header FIles</Filter>
+    </ClInclude>
+    <ClInclude Include="Cube.h">
+      <Filter>Engine\SimpleGeometry\Header FIles</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

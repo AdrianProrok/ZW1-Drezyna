@@ -12,10 +12,11 @@ uniform sampler2D DiffTexture;
 
 uniform int numberOfLights;
 uniform bool selfIllumination;
+uniform float selfIlluminationIntens;
 uniform bool isTextured;
 uniform float ambientStrength;
 
-#define NR_LIGHTS 100
+#define NR_LIGHTS 200
 
 uniform vec3 lightPos[NR_LIGHTS];
 uniform vec3 lightColor[NR_LIGHTS];
@@ -25,22 +26,23 @@ void main()
 {
 	//color = texture(DiffTexture, TexCoord) * vec4(vecColor,1.0);
 
-	float ambient_normalize = ambientStrength/1.0 + lightIntens[0]/60000000.0;
+	float ambient_normalize = ambientStrength/1.0 + lightIntens[0]/45000000.0;
 	ambient_normalize = clamp(ambient_normalize,0.0,1.0);
 
 	if( selfIllumination ) {
 		if( isTextured) {
 			color = vec4( vec3(texture(DiffTexture, TexCoord)) * ambient_normalize, 1.0 );
 		}
-		else
-			color = vec4(vecColor,1.0);
+		else {
+			color = vec4(vecColor * clamp(selfIlluminationIntens,0.0,1.0), 1.0);
+		}
 	}
 	else {
 		// ambient
 		//float ambientStrength = 0.2;
 		vec3 ambient = ambientStrength * vec3(1,1,1);
 		vec3 result = vec3(0,0,0);
-		for(int i = 0; i < numberOfLights; i++) {  	
+		for(int i = 0; i < numberOfLights && i < NR_LIGHTS; i++) {  	
 			// diffuse 
 			vec3 norm = normalize(Normal);
 			vec3 lightDir = normalize(lightPos[i] - FragPos);

@@ -42,8 +42,8 @@ namespace engine
 		void render();
 		void loadTexture(const char* filepath);
 		void translate(glm::vec3);
-	protected:
 		void scale(glm::vec3);
+	protected:		
 		void scaleTexture(glm::vec2);
 		//bool isTextured;
 	};

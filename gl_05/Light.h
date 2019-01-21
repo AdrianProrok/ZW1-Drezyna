@@ -13,7 +13,9 @@ namespace engine
 		glm::vec3 lightPos;
 		glm::vec3 color;
 		float intensity;
+		float default_intens;
 
 		void update(float delta_time, glm::mat4 trans);
+		void render();
 	};
 }
