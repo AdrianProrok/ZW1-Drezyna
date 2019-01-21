@@ -14,7 +14,7 @@ Draisine::~Draisine()
 
 void Draisine::generate()
 {
-	setMesh(new Cylinder(1.0f, 5.0f, 4, glm::vec3(0.274f, 0.509f, 0.705f), glm::vec3(2.0f, 1.0f, 1.0f), glm::vec2(1.0f, 1.0f), glm::vec2(4.0f, 0.5f)));
+	setMesh(new Cylinder(1.0f, 5.0f, 4, glm::vec3(0.274f, 0.509f, 0.705f), glm::vec3(2.0f, 1.0f, 1.0f), glm::vec2(4.0f, 2.0f), glm::vec2(4.0f, 0.5f)));
 	//Wheels
 	for (Wheel& wheel : wheels)
 	{
