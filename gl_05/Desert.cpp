@@ -16,7 +16,7 @@ Desert::~Desert()
 
 void Desert::generate()
 {
-	setMesh(new Cylinder(1.0f, 1000.0f, 4, glm::vec3(0.761f, 0.698f, 0.502f))); //glm::vec3(1.0f, 1.0f, 0.2f));
+	setMesh(new Cylinder(1.0f, 1000.0f, 4, glm::vec3(0.761f, 0.698f, 0.502f), glm::vec3(1,1,1), glm::vec2(200,200)));
 
 	addChild(&draisine);
 	draisine.generate();
@@ -40,7 +40,7 @@ void Desert::generate()
 	rails[0].position = glm::vec3(0.0f, 0.14f + 1.0f, 4.0f);
 	rails[1].position = glm::vec3(0.0f, 0.14f + 1.0f, -4.0f);
 	
-	mesh->loadTexture("desertTexture.jpg");
+	mesh->loadTexture("desertTexture.png");
 	mesh->init();
 
 	//this->position.y -= 2.0;
