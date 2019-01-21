@@ -17,7 +17,7 @@ public:
 
 private:
 	Draisine draisine;
-    Plank planks[100];
+    Plank planks[177];
 	Rail rails[2];
 
 	engine::Light lights[4];

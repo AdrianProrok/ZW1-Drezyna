@@ -11,4 +11,7 @@ public:
 
 	void generate();
 	virtual void update(float delta_time, glm::mat4 trans);
+
+private:
+	//engine::Light light;
 };
