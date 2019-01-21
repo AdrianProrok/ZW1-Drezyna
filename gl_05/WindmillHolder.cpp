@@ -52,9 +52,11 @@ void WindmillHolder::generateVanes()
 		vanes[i].rotation.y = -72.0f * i;
 	}
 
-	for (int i=0; i<5; i++)
+	addChild(&vanes[0]);
+	vanes[0].generate();
+	for (int i=1; i<5; i++)
 	{
 		addChild(&vanes[i]);
-		vanes[i].generate();
+		vanes[i].setMesh(vanes[0].getMesh());
 	}
 }

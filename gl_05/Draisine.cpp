@@ -94,9 +94,8 @@ void Draisine::generate()
 	millBase.generate();
 	millBase.position = glm::vec3(-6.13f, 0.3f, 0.0f);
 
-	//mesh->loadTexture("platformTexture.jpg");
+	mesh->loadTexture("platformTexture.jpg");
 	mesh->init();
-	//mesh->loadTexture("checkerboard.png");
 }
 
 void Draisine::update(float delta_time, glm::mat4 trans)
