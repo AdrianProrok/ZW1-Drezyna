@@ -17,7 +17,7 @@ Wheel::~Wheel()
 
 void Wheel::generate()
 {
-	mesh = new Cylinder(0.7f, 1.35f, 64, glm::vec3(1.0f, 0.0f, 0.0f));
+	setMesh(new Cylinder(0.7f, 1.35f, 64, glm::vec3(1.0f, 0.0f, 0.0f)));
 
 	for (WheelSide& wheelSide : sides)
 		addChild(&wheelSide);

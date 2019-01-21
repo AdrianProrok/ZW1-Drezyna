@@ -22,8 +22,8 @@ namespace engine
 
 	Node::~Node()
 	{
-		if(mesh)
-			delete mesh; // Do przemyœlenia, bo bêdzie problem jak mesh s¹ wspó³dzielone.
+		//if(mesh)
+		//	delete mesh; // Do przemyœlenia, bo bêdzie problem jak mesh s¹ wspó³dzielone.
 	}
 
 	void Node::render()
@@ -73,6 +73,7 @@ namespace engine
 	void Node::setMesh(Mesh* mesh)
 	{
 		this->mesh = mesh;
+		getScene()->addMesh(mesh);
 	}
 
 	Mesh* Node::getMesh()

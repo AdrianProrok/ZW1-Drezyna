@@ -2,7 +2,7 @@
 #include "Cylinder.h"
 #include "Mesh.h"
 #include "Scene.h"
-
+#include <iostream>
 using namespace engine;
 
 Desert::Desert()
@@ -16,15 +16,16 @@ Desert::~Desert()
 
 void Desert::generate()
 {
-	mesh = new Cylinder(1.0f, 1000.0f, 4, glm::vec3(0.761f, 0.698f, 0.502f)); //glm::vec3(1.0f, 1.0f, 0.2f));
+	setMesh(new Cylinder(1.0f, 1000.0f, 4, glm::vec3(0.761f, 0.698f, 0.502f))); //glm::vec3(1.0f, 1.0f, 0.2f));
 
 	addChild(&draisine);
 	draisine.generate();
 	draisine.position = glm::vec3(0.0f, 1.5f + 1.0f, 0.0f);
 	
-	planks[0].generate();
 	addChild(&planks[0]);
+	planks[0].generate();	
 	planks[0].position = glm::vec3(200.0f, 1.0f, 0.0f);
+	
 	for (int i = 1; i < 100; ++i)
 	{
 		addChild(&planks[i]);

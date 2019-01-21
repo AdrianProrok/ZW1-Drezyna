@@ -23,7 +23,7 @@ namespace engine
 
 	void SkyBox::generate(float size, glm::vec3 color, std::string pathToFile)
 	{
-		mesh = new Cube(size, color);
+		setMesh(new Cube(size, color));
 		mesh->translate(glm::vec3(0, -size/2.0f, 0));
 		mesh->init();		
 

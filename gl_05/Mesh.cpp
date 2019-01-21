@@ -7,6 +7,8 @@
 
 #include <SOIL.h>
 
+#include <iostream>
+
 namespace engine
 {
 	Mesh::Mesh()

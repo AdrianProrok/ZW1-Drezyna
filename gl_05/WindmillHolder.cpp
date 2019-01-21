@@ -14,7 +14,7 @@ WindmillHolder::~WindmillHolder()
 
 void WindmillHolder::generate()
 {
-	mesh = new Cylinder(0.72f, 0.2f, 64, glm::vec3(0.325f, 1.0f, 0.63f));
+	setMesh(new Cylinder(0.72f, 0.2f, 64, glm::vec3(0.325f, 1.0f, 0.63f)));
 
 	for (Vane& v : vanes)
 	{
