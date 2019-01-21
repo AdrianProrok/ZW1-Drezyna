@@ -101,17 +101,30 @@ void Draisine::generate()
 
 void Draisine::update(float delta_time, glm::mat4 trans)
 {
+	static int direction = 1;
+	float speed = 4.0f;
+
+	if (position.x <= -250.0f) {
+		direction = -1;
+	}
+	if (position.x >= 250.0f) {
+		direction = 1;
+	}
+
+	delta_time = direction*delta_time;
+
 	for (int i = 0; i < 2; ++i)
 	{
-		wheels[i].rotation.y += 45.0f*delta_time;
+		wheels[i].rotation.y += speed*45.0f*delta_time;
 		if (wheels[i].rotation.y >= 360.0f) wheels[i].rotation.y -= 360.0f;
 
-		wheels[i + 2].rotation.y -= 45.0f*delta_time;
+		wheels[i + 2].rotation.y -= speed*45.0f*delta_time;
 		if (wheels[i + 2].rotation.y <= 0.0f) wheels[i + 2].rotation.y += 360.0f;
 
 		bars[i].position.x = -1.0f*sin(glm::radians(wheels[i].rotation.y));
 		bars[i].position.y = 0.5f + 1.0f*cos(glm::radians(wheels[i].rotation.y));
 	}
 	
+	position.x -= 2 * 1.35*3.14159 * (speed*45.0 / 360.0) * delta_time;
 	Node::update(delta_time, trans);
 }

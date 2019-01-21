@@ -32,8 +32,10 @@ void World::init(float aspect_ratio)
 	// I ca³a reszta
 
 	camera.setScene(this);
-	camera.set(glm::vec3(0.0f, -4.0f, 15.0f), glm::vec3(0.0f, 180.0f, 0.0f));
+	//camera.set(glm::vec3(0.0f, -4.0f, 15.0f), glm::vec3(0.0f, 180.0f, 0.0f));
 	
+	camera.set(glm::vec3(50.0f, -1.5f, 0.0f), glm::vec3(0.0f, 90.0f, 0.0f));
+
 	/*lights.push_back(&light[0]);
 	lights.push_back(&light[1]);
 	lights.push_back(&light[2]);
@@ -66,7 +68,7 @@ void World::render()
 void World::update(float delta_time, const Input& input)
 {	
 	static unsigned int light_index = 0;
-	static int light_sens = 100;
+	static float light_sens = 100;
 
 	if (input.keyboard.keys_pressed[GLFW_KEY_0])
 		light_index = 0;
@@ -89,16 +91,21 @@ void World::update(float delta_time, const Input& input)
 	if (input.keyboard.keys_pressed[GLFW_KEY_9])
 		light_index = 9;
 
-	if (light_index == 0)
+	/*if (light_index == 0)
 		light_sens = 1000000;
 	else
-		light_sens = 100;
+		light_sens = 100;*/
 
 	if (input.keyboard.keys_pressed[GLFW_KEY_U])
 		ambientStrength -= delta_time * 0.5f;
 	if (input.keyboard.keys_pressed[GLFW_KEY_I])
 		ambientStrength += delta_time * 0.5f;
 	if (lights.size() > light_index) {
+		light_sens = lights[light_index]->intensity / 2.0f;
+
+		if (light_sens < 100.0f)
+			light_sens = 100.0f;
+
 		if (input.keyboard.keys_pressed[GLFW_KEY_J])
 			lights[light_index]->intensity -= delta_time * light_sens;
 		if (input.keyboard.keys_pressed[GLFW_KEY_K])
