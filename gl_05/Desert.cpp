@@ -18,6 +18,14 @@ void Desert::generate()
 {
 	setMesh(new Cylinder(1.0f, 2000.0f, 4, glm::vec3(0.761f, 0.698f, 0.502f), glm::vec3(1,1,1), glm::vec2(400,400)));
 
+	lights[0].color = { 1.0f, 1.0f, 1.0f };
+	lights[0].intensity = 60000000.0f;
+	lights[0].position = { -5000.0f, 5000.0f, 250.0f };
+	addChild(&lights[0]);
+	lights[0].generate();
+	getScene()->addLight(&lights[0]);
+	
+
 	addChild(&draisine);
 	draisine.generate();
 	draisine.position = glm::vec3(0.0f, 1.5f + 1.0f, 0.0f);
@@ -45,13 +53,6 @@ void Desert::generate()
 
 	//this->position.y -= 2.0;
 
-	lights[0].color = { 1.0f, 1.0f, 1.0f };
-	lights[0].intensity = 60000000.0f;
-	lights[0].position = { -5000.0f, 5000.0f, 250.0f };
-	lights[0].setScene(getScene());
-	lights[0].generate();
-	getScene()->addLight(&lights[0]);
-
 	/*lights[1].color = { 1.0f, 0.0f, 0.0f };
 	lights[1].intensity = 100.0f;
 	lights[1].position = { 15.0f, 2.0f, 0.0f };
@@ -73,7 +74,6 @@ void Desert::generate()
 	lights[3].generate();
 	getScene()->addLight(&lights[3]);*/
 
-	addChild(&lights[0]);
 	/*addChild(&lights[1]);
 	addChild(&lights[2]);
 	addChild(&lights[3]);*/
