@@ -96,7 +96,6 @@ void Draisine::generate()
 
 	mesh->loadTexture("platformTexture.jpg");
 	mesh->init();
-	//mesh->loadTexture("checkerboard.png");
 }
 
 void Draisine::update(float delta_time, glm::mat4 trans)
@@ -125,6 +124,6 @@ void Draisine::update(float delta_time, glm::mat4 trans)
 		bars[i].position.y = 0.5f + 1.0f*cos(glm::radians(wheels[i].rotation.y));
 	}
 	
-	position.x -= 2 * 1.35*3.14159 * (speed*45.0 / 360.0) * delta_time;
+	//position.x -= 2 * 1.35*3.14159 * (speed*45.0 / 360.0) * delta_time;
 	Node::update(delta_time, trans);
 }

@@ -14,7 +14,7 @@ WindmillBase::~WindmillBase()
 
 void WindmillBase::generate()
 {
-	setMesh(new Cylinder(4.0f, 1.0f, 4, glm::vec3(0.7f, 0.2f, 0.345f), glm::vec3(1.3f, 1.0f, 2.7f)));
+	mesh = new Cylinder(4.0f, 1.0f, 4, glm::vec3(0.7f, 0.2f, 0.345f), glm::vec3(1.3f, 1.0f, 2.7f));
 
 	addChild(&holder);
 	holder.generate();

@@ -14,7 +14,7 @@ LeverTop::~LeverTop()
 
 void LeverTop::generate()
 {
-	setMesh(new Cylinder(0.2f, 0.5f, 4, glm::vec3(0.8f, 0.2f, 1.0f), glm::vec3(9.0f, 1.0f, 1.0f), glm::vec2(1.0f, 1.0f), glm::vec2(1.0f, 1.0f), 0.5f));
+	setMesh(new Cylinder(0.2f, 0.5f, 4, glm::vec3(0.8f, 0.2f, 1.0f), glm::vec3(9.0f, 1.0f, 1.0f), glm::vec2(2.5f, 2.0f), glm::vec2(1.0f, 1.0f), 0.5f));
 	
 	(*this).rotation.x = -90.0f;
 
