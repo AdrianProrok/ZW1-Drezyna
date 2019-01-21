@@ -2,6 +2,8 @@
 #include "Cylinder.h"
 #include "Mesh.h"
 #include "Scene.h"
+#include "Lamp.h"
+#include "Plank.h"
 #include <iostream>
 using namespace engine;
 
@@ -19,7 +21,7 @@ void Desert::generate()
 	setMesh(new Cylinder(1.0f, 2000.0f, 4, glm::vec3(0.761f, 0.698f, 0.502f), glm::vec3(1,1,1), glm::vec2(400,400)));
 
 	lights[0].color = { 1.0f, 1.0f, 1.0f };
-	lights[0].intensity = 60000000.0f;
+	lights[0].intensity = 45000000.0f;
 	lights[0].position = { -5000.0f, 5000.0f, 250.0f };
 	addChild(&lights[0]);
 	lights[0].generate();
@@ -51,32 +53,23 @@ void Desert::generate()
 	mesh->loadTexture("desertTexture.png");
 	mesh->init();
 
-	//this->position.y -= 2.0;
+	addChild(&lamps[0]);
+	lamps[0].generate(nullptr);
+	lamps[0].position = glm::vec3(352.0f, 1.0f, 7.0f);
 
-	/*lights[1].color = { 1.0f, 0.0f, 0.0f };
-	lights[1].intensity = 100.0f;
-	lights[1].position = { 15.0f, 2.0f, 0.0f };
-	lights[1].setScene(getScene());
-	lights[1].generate();
-	getScene()->addLight(&lights[1]);
+	for (int i = 1; i < 25; ++i)
+	{
+		addChild(&lamps[i]);
+		lamps[i].generate(lamps[0].getMesh());
+		lamps[i].position = glm::vec3(352.0f - (float)28.8 * i, 1.0f, 7.0f);
+	}
 
-	lights[2].color = { 0.0f, 1.0f, 0.0f };
-	lights[2].intensity = 100.0f;
-	lights[2].position = { 15.0f, 2.0f, 6.0f };
-	lights[2].setScene(getScene());
-	lights[2].generate();
-	getScene()->addLight(&lights[2]);
-
-	lights[3].color = { 0.0f, 0.0f, 1.0f };
-	lights[3].intensity = 100.0f;
-	lights[3].position = { 18.0f, 2.0f, 3.0f };
-	lights[3].setScene(getScene());
-	lights[3].generate();
-	getScene()->addLight(&lights[3]);*/
-
-	/*addChild(&lights[1]);
-	addChild(&lights[2]);
-	addChild(&lights[3]);*/
+	for (int i = 25; i < 50; ++i)
+	{
+		addChild(&lamps[i]);
+		lamps[i].generate(lamps[0].getMesh());
+		lamps[i].position = glm::vec3(352.0f - (float)28.8 * (i-25), 1.0f, -7.0f);
+	}
 }
 
 void Desert::update(float delta_time, glm::mat4 trans)

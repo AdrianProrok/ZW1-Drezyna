@@ -5,6 +5,7 @@
 #include "Plank.h"
 #include "Rail.h"
 #include "Light.h"
+#include "Lamp.h"
 
 class Desert : public engine::Node
 {
@@ -18,6 +19,7 @@ public:
 private:
 	Draisine draisine;
     Plank planks[177];
+	Lamp lamps[50];
 	Rail rails[2];
 
 	engine::Light lights[4];

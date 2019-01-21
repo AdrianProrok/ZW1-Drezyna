@@ -39,6 +39,8 @@ namespace engine
 		void addChild(Node* child);
 
 		void setSelfIllumination(bool isSelfIllumination);
+		void setSelfIlluminationIntens(float intens);
+		float getSelfIlluminationIntens();
 
 	protected:
 		Mesh* mesh;
@@ -49,5 +51,6 @@ namespace engine
 		Node* parent;
 
 		bool isSelfIlluminated;
+		float selfIlluminationIntens;
 	};
 }

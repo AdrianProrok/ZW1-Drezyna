@@ -103,22 +103,40 @@ void World::update(float delta_time, const Input& input)
 	if (lights.size() > light_index) {
 		light_sens = lights[light_index]->intensity / 2.0f;
 
-		if (light_sens < 100.0f)
-			light_sens = 100.0f;
+		if (light_sens < 10.0f)
+			light_sens = 10.0f;
 
-		if (input.keyboard.keys_pressed[GLFW_KEY_J])
-			lights[light_index]->intensity -= delta_time * light_sens;
-		if (input.keyboard.keys_pressed[GLFW_KEY_K])
-			lights[light_index]->intensity += delta_time * light_sens;
-		if (lights[light_index]->intensity < 0)
-			lights[light_index]->intensity = 0;
+		if (light_index >= 5) {
+			for (int i = 5; i < lights.size(); ++i) {
+				if (input.keyboard.keys_pressed[GLFW_KEY_J])
+					lights[i]->intensity -= delta_time * light_sens;
+				if (input.keyboard.keys_pressed[GLFW_KEY_K])
+					lights[i]->intensity += delta_time * light_sens;
+				if (lights[i]->intensity < 0)
+					lights[i]->intensity = 0;
+				if (input.keyboard.keys_pressed[GLFW_KEY_H]) {
+					lights[i]->intensity = lights[i]->default_intens;
+				}
+			}
+		}
+		else 
+		{
+			if (input.keyboard.keys_pressed[GLFW_KEY_J])
+				lights[light_index]->intensity -= delta_time * light_sens;
+			if (input.keyboard.keys_pressed[GLFW_KEY_K])
+				lights[light_index]->intensity += delta_time * light_sens;
+			if (lights[light_index]->intensity < 0)
+				lights[light_index]->intensity = 0;
+			if (input.keyboard.keys_pressed[GLFW_KEY_H]) {
+				lights[light_index]->intensity = lights[light_index]->default_intens;
+			}
+		}
 	}
-	if( lights.size() > 0 )
-		if (input.keyboard.keys_pressed[GLFW_KEY_H]) {
-			lights[0]->intensity = 3000000.0f;
-		}	
-	if (ambientStrength < 0)
-		ambientStrength = 0;
+
+	if (ambientStrength < 0.0f)
+		ambientStrength = 0.0f;
+	if (ambientStrength > 1.0f)
+		ambientStrength = 1.0f;
 
 	Scene::update(delta_time, input);
 }
