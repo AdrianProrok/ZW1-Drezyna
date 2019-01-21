@@ -24,9 +24,14 @@ uniform float lightIntens[NR_LIGHTS];
 void main()
 {
 	//color = texture(DiffTexture, TexCoord) * vec4(vecColor,1.0);
+
+	float ambient_normalize = ambientStrength/1.0 + lightIntens[0]/60000000.0;
+	ambient_normalize = clamp(ambient_normalize,0.0,1.0);
+
 	if( selfIllumination ) {
-		if( isTextured)
-			color =  texture(DiffTexture, TexCoord);
+		if( isTextured) {
+			color = vec4( vec3(texture(DiffTexture, TexCoord)) * ambient_normalize, 1.0 );
+		}
 		else
 			color = vec4(vecColor,1.0);
 	}
@@ -54,7 +59,7 @@ void main()
 			result += ambient * vecColor;
 		color = vec4(result, 1.0);
 		
-		float fog = (PosForFog.z-100) / 500.0;
+		float fog = ((PosForFog.z-100) / 500.0) * ambient_normalize;
 		fog = clamp(fog, 0.0, 1.0);
 
 		color = mix(color, vec4(0.463, 0.431, 0.451, 1), fog );
