@@ -6,7 +6,7 @@
 # Podział pracy
 - **Kamil Buczko** - stworzenie i ustawienie elementów na scenie, animacja, teksturowanie, proceduralne generowanie graniastosłupów foremnych wraz z normalnymi i mapowaniem UV
 - **Marcin Janczurewicz** - stworzenie i ustawienie elementów na scenie, animacja, teksturowanie, modyfikacja generowania brył
-- **Gerard Wypych** - szkielet programu (podstawowe klasy i metody, podział na scene, node, mesh itd.), kamera, sterowanie, oświetlenie, shadery, wczytywanie tekstur, pomniejsze elementy itp.
+- **Gerard Wypych** - szkielet programu (podstawowe klasy i metody, podział na scene, node, mesh itd.), kamera, sterowanie, oświetlenie, shadery, wczytywanie tekstur, skybox itp.
 
 # Lista zadań
 
