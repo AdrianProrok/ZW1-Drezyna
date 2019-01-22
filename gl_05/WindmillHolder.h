@@ -10,7 +10,7 @@ public:
 	~WindmillHolder();
 
 	void generate();
-	void generateVanes();
+	void generateVanes(int);
 	virtual void update(float delta_time, glm::mat4 trans);
 
 	std::vector<Vane> vanes;
