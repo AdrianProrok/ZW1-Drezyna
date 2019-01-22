@@ -1,11 +1,12 @@
 # Zespół
-- Gerard Wypych
 - Kamil Buczko
 - Marcin Janczurewicz
+- Gerard Wypych
 
-# Opis
-Projekt polega na zamodelowaniu i wyświetleniu trójwymiarowej sceny składającej się z drezyny, torów i otoczenia.  
-Na otoczenie składa się pustynny krajobraz, kaktusy, przelatujące [biegacze](https://pl.wikipedia.org/wiki/Biegacze) oraz niebo (skybox) ze słońcem.
+# Podział pracy
+- **Kamil Buczko** - stworzenie i ustawienie elementów na scenie, animacja, teksturowanie, proceduralne generowanie graniastosłupów foremnych wraz z normalnymi i mapowaniem UV
+- **Marcin Janczurewicz** - stworzenie i ustawienie elementów na scenie, animacja, teksturowanie, modyfikacja generowania brył
+- **Gerard Wypych** - szkielet programu (podstawowe klasy i metody, podział na scene, node, mesh itd.), kamera, sterowanie, oświetlenie, shadery, wczytywanie tekstur, pomniejsze elementy itp.
 
 # Lista zadań
 
@@ -25,13 +26,17 @@ Na otoczenie składa się pustynny krajobraz, kaktusy, przelatujące [biegacze](
 9. Tekstury
 10. Prezentacja gotowego projektu
 
-# Szkic
+# Opis
+Projekt polega na zamodelowaniu i wyświetleniu trójwymiarowej sceny składającej się z drezyny, torów i otoczenia.  
+Na otoczenie składa się pustynny krajobraz, lampki przy torach oraz niebo (skybox) ze słońcem.
+
+## Szkic
 ![](draisine-sketch.png)
 
-# Aktualny Stan
+## Aktualny Stan
 ![](current-state.png)
 
-# Opis elementów ruchomych
+## Opis elementów ruchomych
 
 ### Wszystkie elementy 
 * Ruch w przód równolegle do szyn.
@@ -43,3 +48,9 @@ Na otoczenie składa się pustynny krajobraz, kaktusy, przelatujące [biegacze](
 ### Dżwignia + Uchwyty
 * Środek dźwigni pozostaje niewrażliwy na ruch pionowy.
 * Uchwyty poruszają się przeciwlegle tzn. gdy jeden uchwyt obniży się w pionie o wartość x, to drugi w tym czasie podwyższy się o wartość x.
+
+# Literatura oraz materiały źródłowe
+- Materiały dostępne w ramach wykładu i laboratorium z przedmiotu Grafika Komputerowa
+- https://learnopengl.com/ by Joey de Vries
+- OpenGl Superbible: Comprehensive Tutorial and Reference (7th Edition) by Graham Sellers, Richard S. Wright Jr., Nicholas Haemel
+- Tekstury: https://www.poliigon.com/ oraz https://pxhere.com/
