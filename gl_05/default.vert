@@ -26,9 +26,6 @@ void main()
 
 	Normal = vec3( transpose(inverse(transform)) * vec4(normal,1.0f) );  
 
-	//float dis = distance( projection * view * vec4(lightPos,1.0f), gl_Position );
-    //vecColor = vec4(color,1.0f) * 5.0f / dis;
-
 	vecColor = color;
     TexCoord = texCoord;
 } 

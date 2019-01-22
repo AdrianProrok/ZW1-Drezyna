@@ -18,10 +18,17 @@ public:
 
 private:
 	Draisine draisine;
-    Plank planks[177];
-	Lamp lamps[50];
+    
+	std::vector<Plank> planks;
+
+	std::vector<Lamp> lamps;
+
 	Rail rails[2];
 
-	engine::Light lights[4];
+	engine::Light light;
+
+	void setSun(glm::vec3 color, float intens, glm::vec3 position);
+	void generateRailroadTrack(float length, float space);
+	void generateLamps(unsigned int count, float spacing);
 };
 

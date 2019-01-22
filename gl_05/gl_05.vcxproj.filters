@@ -137,16 +137,53 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="gl_05.frag" />
-    <None Include="gl_05.vert" />
-    <None Include="skybox.frag" />
-    <None Include="skybox.vert" />
+    <None Include="default.frag" />
+    <None Include="default.vert" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="iipw.png">
+    <Image Include="barTexture.jpg">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="weiti.png">
+    <Image Include="desertTexture.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="fenceTexture.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="leverBaseTopTexture.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="leverConnHandleTexture.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="plankTexture.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="platformTexture.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="railTexture.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="screwTexture.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="skybox.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="test.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="vaneTexture.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="wheelsTexture.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="windmillTexture.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="windmillTexture.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

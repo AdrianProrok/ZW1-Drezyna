@@ -14,6 +14,8 @@ namespace engine
 
 		skybox = nullptr;
 		skybox_shader = nullptr;
+
+		f_pause = false;
 	}
 
 	Scene::~Scene()
@@ -77,6 +79,10 @@ namespace engine
 	void Scene::update(float delta_time, const Input& input)
 	{
 		updateCamera(delta_time, input);
+
+		if (f_pause == true)
+			delta_time = 0;
+
 		if (root_node)
 			root_node->update(delta_time, glm::mat4());
 	}
@@ -124,7 +130,11 @@ namespace engine
 	{
 		const float speed_gamepad_move = 3.5f;
 		const float speed_gamepad_angle = 120.0f;
-		
+		float speed_boost = 1.0f;
+
+		if (input.keyboard.keys_pressed[GLFW_KEY_LEFT_SHIFT])
+			speed_boost = 4.0f;
+
 		camera.update(
 			glm::vec3(
 				-speed_gamepad_move*input.gamepad.left_horizontal*delta_time,
@@ -138,9 +148,9 @@ namespace engine
 
 		camera.update(
 			glm::vec3(
-				camera.speed*(input.keyboard.keys_pressed[GLFW_KEY_A] - input.keyboard.keys_pressed[GLFW_KEY_D])*delta_time,
-				camera.speed*(input.keyboard.keys_pressed[GLFW_KEY_Q] - input.keyboard.keys_pressed[GLFW_KEY_E])*delta_time,
-				camera.speed*(input.keyboard.keys_pressed[GLFW_KEY_W] - input.keyboard.keys_pressed[GLFW_KEY_S])*delta_time),
+				speed_boost*camera.speed*(input.keyboard.keys_pressed[GLFW_KEY_A] - input.keyboard.keys_pressed[GLFW_KEY_D])*delta_time,
+				speed_boost*camera.speed*(input.keyboard.keys_pressed[GLFW_KEY_Q] - input.keyboard.keys_pressed[GLFW_KEY_E])*delta_time,
+				speed_boost*camera.speed*(input.keyboard.keys_pressed[GLFW_KEY_W] - input.keyboard.keys_pressed[GLFW_KEY_S])*delta_time),
 			glm::vec3(
 				input.mouse.pos_y*0.1f,
 				input.mouse.pos_x*0.1f, 0.0f)

@@ -90,9 +90,7 @@ void App::run()
 		time_d = std::chrono::duration_cast<std::chrono::microseconds>(time_end - time_start);
 		time_start = time_end;
 
-		//static long long time_avg = 0;
 		static long long time_refresh = 0;
-		//time_avg = (time_avg + time_d.count()) / 2;
 		time_refresh += time_d.count();
 
 		if (time_refresh > 500000)
@@ -102,6 +100,7 @@ void App::run()
 			time_string << time_d.count() / 1000.0 << " ms";
 			glfwSetWindowTitle(window, (std::string("GKOM - drezyna | ") + time_string.str()).c_str());
 		}
+
 		render();
 		logic();
 	}
@@ -167,8 +166,8 @@ bool App::init()
 	glfwSwapInterval(0);
 	glViewport(0, 0, settings.width, settings.height);
 	glEnable(GL_DEPTH_TEST);
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	/*glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);*/
 
 	scene.init(settings.width/float(settings.height));
 	

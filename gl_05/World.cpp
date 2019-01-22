@@ -21,8 +21,8 @@ World::~World()
 void World::init(float aspect_ratio)
 {
 	// Najpierw shader, bo potem ró¿ne rzeczy s¹ do niego ³adowane
-	setCurrentShaderProgram(new engine::ShaderProgram("gl_05.vert", "gl_05.frag"));
-	//skybox_shader = new engine::ShaderProgram("skybox.vert", "skybox.frag");
+	setCurrentShaderProgram(new engine::ShaderProgram("default.vert", "default.frag"));
+	
 	shader_program->Use();
 
 	// Potem RootNode
@@ -32,32 +32,14 @@ void World::init(float aspect_ratio)
 	// I ca³a reszta
 
 	camera.setScene(this);
-	//camera.set(glm::vec3(0.0f, -4.0f, 15.0f), glm::vec3(0.0f, 180.0f, 0.0f));
-	
-	camera.set(glm::vec3(50.0f, -1.5f, 0.0f), glm::vec3(0.0f, 90.0f, 0.0f));
 
-	/*lights.push_back(&light[0]);
-	lights.push_back(&light[1]);
-	lights.push_back(&light[2]);
-	lights.push_back(&light[3]);*/
+	camera.set(glm::vec3(50.0f, -1.5f, 0.0f), glm::vec3(0.0f, 90.0f, 0.0f));
 	
 	Scene::init(aspect_ratio);
 
 	skybox = new SkyBox();
 	skybox->setScene(this);
 	skybox->generate(900.0f, glm::vec3(0.2f, 0.35f, 0.7f), "skybox.png");
-
-	//std::vector<std::string> faces
-	//{
-	//	"test.png",
-	//	"test.png",
-	//	"test.png",
-	//	"test.png",
-	//	"test.png",
-	//	"test.png"
-	//};
-	////skybox->init();
-	//skybox->loadTexture(faces);
 }
 
 void World::render()
@@ -91,11 +73,6 @@ void World::update(float delta_time, const Input& input)
 	if (input.keyboard.keys_pressed[GLFW_KEY_9])
 		light_index = 9;
 
-	/*if (light_index == 0)
-		light_sens = 1000000;
-	else
-		light_sens = 100;*/
-
 	if (input.keyboard.keys_pressed[GLFW_KEY_U])
 		ambientStrength -= delta_time * 0.5f;
 	if (input.keyboard.keys_pressed[GLFW_KEY_I])
@@ -107,7 +84,7 @@ void World::update(float delta_time, const Input& input)
 			light_sens = 10.0f;
 
 		if (light_index >= 5) {
-			for (int i = 5; i < lights.size(); ++i) {
+			for (unsigned int i = 5; i < lights.size(); ++i) {
 				if (input.keyboard.keys_pressed[GLFW_KEY_J])
 					lights[i]->intensity -= delta_time * light_sens;
 				if (input.keyboard.keys_pressed[GLFW_KEY_K])
@@ -137,6 +114,11 @@ void World::update(float delta_time, const Input& input)
 		ambientStrength = 0.0f;
 	if (ambientStrength > 1.0f)
 		ambientStrength = 1.0f;
+	
+	if (input.keyboard.keys_pressed[GLFW_KEY_P])
+		f_pause = true;
+	if (input.keyboard.keys_pressed[GLFW_KEY_O])
+		f_pause = false;
 
 	Scene::update(delta_time, input);
 }
