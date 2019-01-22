@@ -30,12 +30,6 @@
 Projekt polega na zamodelowaniu i wyświetleniu trójwymiarowej sceny składającej się z drezyny, torów i otoczenia.  
 Na otoczenie składa się pustynny krajobraz, lampki przy torach oraz niebo (skybox) ze słońcem.
 
-## Szkic
-![](draisine-sketch.png)
-
-## Aktualny Stan
-![](current-state.png)
-
 ## Opis elementów ruchomych
 
 ### Wszystkie elementy 
@@ -48,6 +42,29 @@ Na otoczenie składa się pustynny krajobraz, lampki przy torach oraz niebo (sky
 ### Dżwignia + Uchwyty
 * Środek dźwigni pozostaje niewrażliwy na ruch pionowy.
 * Uchwyty poruszają się przeciwlegle tzn. gdy jeden uchwyt obniży się w pionie o wartość x, to drugi w tym czasie podwyższy się o wartość x.
+
+## Szkic
+![](draisine-sketch.png)
+
+## Aktualny Stan
+![](current-state.png)
+
+# Instrukcja obsługi
+
+## Sterowanie kamerą
+**W, A, S, D** - w przód, w lewo, w tył, w prawo  
+**E, Q** - do góry, do dołu  
+**SHIFT** - przyspieszenie  
+**T, G** - zmiana pola widzenia  
+
+## Sterowanie oświetleniem
+**0, 1, 2, 3, 4, 5, 6, 7, 8, 9** - wybór światła, które chcemy modyfikować (0 - słońce, 1-4 - światła na drezynie, dowolne powyżej 4 - wszystkie pozostałe światła na raz)  
+**J, K** - zmniejszenie lub zwiększenie intensywności wybranego światła  
+**H** - przywrócenie intensywności wybranego światła do wartości domyślnej  
+**U, I** - zmiana intensywności światła otoczenia  
+
+## Sterowanie animacją
+**O, P** - wznowienie lub zatrzymanie wykonywania animacji  
 
 # Mapa kodu
 
