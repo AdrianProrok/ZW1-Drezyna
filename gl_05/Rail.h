@@ -9,7 +9,7 @@ public:
 	Rail();
 	~Rail();
 
-	void generate();
+	void generate(float length);
 	virtual void update(float delta_time, glm::mat4 trans);
 };
 

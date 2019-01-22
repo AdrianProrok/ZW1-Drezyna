@@ -38,10 +38,10 @@ namespace engine
 
 		Camera* getCamera();
 
-		//void addLight(glm::vec3 position, glm::vec3 color, float intensity);
 		void addLight(Light* light);
 
 		void addMesh(Mesh* mesh);
+
 	protected:
 
 		void setRootNode(Node* node);
@@ -66,11 +66,9 @@ namespace engine
 		std::vector<Light*> lights;
 		float ambientStrength;
 
-		//glm::mat4 view;
-		//glm::mat4 projection;
-
-		// £atwiej chyba trzymaæ mesh i material w Node
-		//std::vector<Material> materials;
+		// Meshes
 		std::set<Mesh*> meshes;
+	
+		bool f_pause;
 	};
 }

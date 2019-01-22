@@ -24,8 +24,6 @@ uniform float lightIntens[NR_LIGHTS];
 
 void main()
 {
-	//color = texture(DiffTexture, TexCoord) * vec4(vecColor,1.0);
-
 	float ambient_normalize = ambientStrength/1.0 + lightIntens[0]/45000000.0;
 	ambient_normalize = clamp(ambient_normalize,0.0,1.0);
 
@@ -38,8 +36,6 @@ void main()
 		}
 	}
 	else {
-		// ambient
-		//float ambientStrength = 0.2;
 		vec3 ambient = ambientStrength * vec3(1,1,1);
 		vec3 result = vec3(0,0,0);
 		for(int i = 0; i < numberOfLights && i < NR_LIGHTS; i++) {  	
@@ -67,10 +63,3 @@ void main()
 		color = mix(color, vec4(0.463, 0.431, 0.451, 1), fog );
 	}
 }
-// vec4(0.2, 0.35, 0.7, 1.0)
-// specular
-    //float specularStrength = 0.5;
-    //vec3 viewDir = normalize(viewPos - FragPos);
-    //vec3 reflectDir = reflect(-lightDir, norm);  
-    //float spec = pow(max(dot(viewDir, reflectDir), 0.0), 32);
-    //vec3 specular = specularStrength * spec * lightColor;  

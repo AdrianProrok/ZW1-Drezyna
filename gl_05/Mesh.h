@@ -45,6 +45,5 @@ namespace engine
 		void scale(glm::vec3);
 	protected:		
 		void scaleTexture(glm::vec2);
-		//bool isTextured;
 	};
 }

@@ -12,8 +12,5 @@ namespace engine
 		~SkyBox();
 
 		void generate(float size, glm::vec3 color, std::string pathToFile = "");
-
-		/*void loadTexture(std::vector<std::string> faces);
-		void render();*/
 	};
 }

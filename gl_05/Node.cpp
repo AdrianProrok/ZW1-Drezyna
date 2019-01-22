@@ -23,13 +23,11 @@ namespace engine
 
 	Node::~Node()
 	{
-		//if(mesh)
-		//	delete mesh; // Do przemyœlenia, bo bêdzie problem jak mesh s¹ wspó³dzielone.
 	}
 
 	void Node::render()
 	{
-		// 1. Dane o przesuniêciu, skalowaniu i obrocie dla shadera
+		// 1. Dane do shadera
 		// 2. Rysowanie
 		// 3. Rysowanie wszystkich dzieci
 
@@ -44,8 +42,10 @@ namespace engine
 		GLuint transformLoc = glGetUniformLocation(scene->getCurrentShaderProgram()->get_programID(), "transform");
 		glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(trans));
 
-		if (mesh) {
-			if (mesh->material) { // Przenieœæ do mesha?
+		if (mesh) 
+		{
+			if (mesh->material) 
+			{
 				glActiveTexture(GL_TEXTURE0);
 				glBindTexture(GL_TEXTURE_2D, mesh->material->diffuse_texture);
 				glUniform1i(glGetUniformLocation(scene->getCurrentShaderProgram()->get_programID(), "DiffTexture"), 0);
@@ -66,7 +66,6 @@ namespace engine
 		new_trans = glm::rotate(new_trans, glm::radians(rotation.x), glm::vec3(1, 0, 0)); // X
 		new_trans = glm::rotate(new_trans, glm::radians(rotation.y), glm::vec3(0, 1, 0)); // Y
 		new_trans = glm::rotate(new_trans, glm::radians(rotation.z), glm::vec3(0, 0, 1)); // Z
-		
 
 		this->trans = trans * new_trans;
 

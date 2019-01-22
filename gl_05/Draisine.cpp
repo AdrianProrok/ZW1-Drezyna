@@ -124,6 +124,6 @@ void Draisine::update(float delta_time, glm::mat4 trans)
 		bars[i].position.y = 0.5f + 1.0f*cos(glm::radians(wheels[i].rotation.y));
 	}
 	
-	//position.x -= 2 * 1.35*3.14159 * (speed*45.0 / 360.0) * delta_time;
+	position.x -= 2.0f * 1.35f * 3.14159f * (speed*45.0f / 360.0f) * delta_time;
 	Node::update(delta_time, trans);
 }

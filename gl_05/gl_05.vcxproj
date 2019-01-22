@@ -48,6 +48,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(SolutionDir)\Include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <LibraryPath>$(SolutionDir)\Lib;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -125,14 +127,25 @@
     <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="gl_05.frag" />
-    <None Include="gl_05.vert" />
-    <None Include="skybox.frag" />
-    <None Include="skybox.vert" />
+    <None Include="default.frag" />
+    <None Include="default.vert" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="iipw.png" />
-    <Image Include="weiti.png" />
+    <Image Include="barTexture.jpg" />
+    <Image Include="desertTexture.png" />
+    <Image Include="fenceTexture.jpg" />
+    <Image Include="leverBaseTopTexture.jpg" />
+    <Image Include="leverConnHandleTexture.jpg" />
+    <Image Include="plankTexture.jpg" />
+    <Image Include="platformTexture.jpg" />
+    <Image Include="railTexture.jpg" />
+    <Image Include="screwTexture.jpg" />
+    <Image Include="skybox.png" />
+    <Image Include="test.png" />
+    <Image Include="vaneTexture.jpg" />
+    <Image Include="wheelsTexture.jpg" />
+    <Image Include="windmillTexture.jpg" />
+    <Image Include="windmillTexture.png" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.h" />

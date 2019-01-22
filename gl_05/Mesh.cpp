@@ -18,7 +18,6 @@ namespace engine
 		glGenBuffers(1, &EBO);
 
 		material = nullptr;
-		//isTextured = false;
 	}
 
 	Mesh::~Mesh()

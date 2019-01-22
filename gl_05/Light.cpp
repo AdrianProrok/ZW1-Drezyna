@@ -4,7 +4,6 @@
 namespace engine
 {
 	void Light::generate() {
-		//setMesh(new Cylinder(0.5f, 0.5f * sqrt(2) / 2, 4, color, glm::vec3(1.0f, 1.0f, 1.0f)));
 		setMesh(new Cube(0.5f, color));
 		mesh->init();
 
