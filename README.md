@@ -49,6 +49,10 @@ Na otoczenie składa się pustynny krajobraz, lampki przy torach oraz niebo (sky
 * Środek dźwigni pozostaje niewrażliwy na ruch pionowy.
 * Uchwyty poruszają się przeciwlegle tzn. gdy jeden uchwyt obniży się w pionie o wartość x, to drugi w tym czasie podwyższy się o wartość x.
 
+# Mapa kodu
+
+![](code-map.png)
+
 # Literatura oraz materiały źródłowe
 - Materiały dostępne w ramach wykładu i laboratorium z przedmiotu Grafika Komputerowa
 - https://learnopengl.com/ by Joey de Vries
